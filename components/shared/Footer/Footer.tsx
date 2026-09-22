@@ -9,7 +9,7 @@ import {
   Phone,
   ArrowUp,
 } from "lucide-react";
-import { InstagramIcon, FacebookIcon, XIcon } from "./SocialIcons";
+import { InstagramIcon, FacebookIcon, XIcon } from "@/components/SocialIcons";
 
 const QUICK_LINKS = [
   { label: "About", href: "#about" },
@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div className="lg:pr-8">
               <a href="#home" className="font-display text-2xl font-extrabold">
-                TITAN<span className="text-accent">.</span>
+                <span className="text-accent">AHMED GYM & CAFE 29</span>
               </a>
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-ash">
                 More than a gym. A premium fitness experience designed to help
@@ -112,7 +112,7 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-sm text-ash">
                   <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
-                  <span>123 Fitness Avenue, Downtown, New York, NY 10001</span>
+                  <span>Plot-112, Block 1, Road 1, Goyalkhali, Khulna, Bangladesh</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-ash">
                   <Phone size={16} className="shrink-0 text-accent" />
@@ -120,7 +120,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-ash">
                   <Mail size={16} className="shrink-0 text-accent" />
-                  <span>hello@titanfitness.com</span>
+                  <span>hello@ahmedgym.com</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-ash">
                   <Dumbbell size={16} className="mt-0.5 shrink-0 text-accent" />
@@ -135,7 +135,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-sm text-ash-2 md:flex-row">
-            <p>&copy; {new Date().getFullYear()} TITAN Fitness Club. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} AHMED GYM & CAFE 29. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
               <a href="#" className="transition-colors hover:text-white">Terms of Service</a>

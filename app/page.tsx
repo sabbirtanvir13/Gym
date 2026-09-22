@@ -1,7 +1,7 @@
 import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Navbar from "@/components/Navbar";
+// Navbar moved to shared layout
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Programs from "@/components/Programs";
@@ -13,14 +13,16 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Transformation from "@/components/Transformation";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+// Footer moved to shared layout
+import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <>
+      <PageLoader />
       <ScrollProgress />
       <CustomCursor />
-      <Navbar />
+
       <main className="noise-texture">
         <Hero />
         <About />
@@ -34,7 +36,7 @@ export default function Home() {
         <Transformation />
         <Contact />
       </main>
-      <Footer />
+      // Footer rendered in layout
       <WhatsAppButton />
     </>
   );

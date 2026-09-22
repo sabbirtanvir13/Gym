@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Navbar from "@/components/shared/Navbar/Navbar";
+import Footer from "@/components/shared/Footer/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,7 +19,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "TITAN — Premium Fitness Club",
+  title: "AHMED GYM & CAFE 29",
   description:
     "Build your strongest self. Premium gym with expert trainers, modern equipment, and a motivating environment.",
 };
@@ -30,9 +33,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${sora.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-ink text-white antialiased">
-        {children}
+        <ThemeProvider attribute="data-theme" defaultTheme="dark">
+          <Navbar />
+          <main className="noise-texture">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

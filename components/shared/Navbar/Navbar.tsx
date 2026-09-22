@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp, Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -66,7 +67,7 @@ export default function Navbar() {
             }}
             className="font-display text-xl font-extrabold tracking-tight"
           >
-            TITAN<span className="text-accent">.</span>
+            <span className="text-accent">AHMED GYM & CAFE 29</span>
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
@@ -97,7 +98,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-4 lg:flex">
+            <ThemeToggle />
             <a
               href="#membership"
               onClick={(e) => {
@@ -111,13 +113,16 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-white lg:hidden"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex items-center gap-3 lg:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setOpen(!open)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-white"
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </nav>
       </motion.header>
 

@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #050505;
-  --color-ink-2: #0a0a0b;
-  --color-ink-3: #101012;
-  --color-charcoal: #161618;
-  --color-charcoal-2: #1d1d20;
-  --color-line: rgba(255, 255, 255, 0.08);
-  --color-line-2: rgba(255, 255, 255, 0.14);
-  --color-ash: #8a8a8f;
-  --color-ash-2: #5a5a60;
+  --color-ink: var(--theme-ink);
+  --color-ink-2: var(--theme-ink-2);
+  --color-ink-3: var(--theme-ink-3);
+  --color-charcoal: var(--theme-charcoal);
+  --color-charcoal-2: var(--theme-charcoal-2);
+  --color-line: var(--theme-line);
+  --color-line-2: var(--theme-line-2);
+  --color-ash: var(--theme-ash);
+  --color-ash-2: var(--theme-ash-2);
 
-  --color-accent: #d4ff00;
-  --color-accent-2: #b8e000;
-  --color-accent-glow: rgba(212, 255, 0, 0.18);
+  --color-accent: var(--theme-accent);
+  --color-accent-2: var(--theme-accent-2);
+  --color-accent-glow: var(--theme-accent-glow);
+
+  --color-white: var(--theme-text);
+  --color-black: var(--theme-bg-invert);
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-sora), var(--font-inter), system-ui, sans-serif;
@@ -22,35 +25,119 @@
 }
 
 @layer base {
+  :root {
+    --theme-ink: #050505;
+    --theme-ink-2: #0a0a0b;
+    --theme-ink-3: #101012;
+    --theme-charcoal: #161618;
+    --theme-charcoal-2: #1d1d20;
+    --theme-line: rgba(255, 255, 255, 0.08);
+    --theme-line-2: rgba(255, 255, 255, 0.14);
+    --theme-ash: #8a8a8f;
+    --theme-ash-2: #5a5a60;
+
+    --theme-accent: #f28522;
+    --theme-accent-2: #d67018;
+    --theme-accent-glow: rgba(242, 133, 34, 0.18);
+    
+    --theme-text: #ffffff;
+    --theme-bg-invert: #000000;
+    --theme-selection-text: #000000;
+
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-strong-bg: rgba(10, 10, 11, 0.7);
+    --glass-strong-border: rgba(255, 255, 255, 0.06);
+    --gradient-glow-stop1: var(--theme-accent-glow);
+    --text-gradient-start: #ffffff;
+    --text-gradient-end: #8a8a8f;
+  }
+
+  [data-theme='light'] {
+    --theme-ink: #fdfdfd;
+    --theme-ink-2: #f7f7f8;
+    --theme-ink-3: #f0f0f2;
+    --theme-charcoal: #e5e5e5;
+    --theme-charcoal-2: #d4d4d4;
+    --theme-line: rgba(0, 0, 0, 0.08);
+    --theme-line-2: rgba(0, 0, 0, 0.14);
+    --theme-ash: #6b7280;
+    --theme-ash-2: #9ca3af;
+    
+    --theme-accent: #f28522;
+    --theme-accent-2: #d67018;
+    --theme-accent-glow: rgba(242, 133, 34, 0.18);
+
+    --theme-text: #111111;
+    --theme-bg-invert: #ffffff;
+    --theme-selection-text: #ffffff;
+
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-strong-bg: rgba(255, 255, 255, 0.85);
+    --glass-strong-border: rgba(0, 0, 0, 0.06);
+    --gradient-glow-stop1: rgba(242, 133, 34, 0.1);
+    --text-gradient-start: #111111;
+    --text-gradient-end: #6b7280;
+  }
+
+  [data-theme='blue'] {
+    --theme-ink: #020617;
+    --theme-ink-2: #0f172a;
+    --theme-ink-3: #1e293b;
+    --theme-charcoal: #1e293b;
+    --theme-charcoal-2: #334155;
+    --theme-line: rgba(255, 255, 255, 0.1);
+    --theme-line-2: rgba(255, 255, 255, 0.15);
+    --theme-ash: #94a3b8;
+    --theme-ash-2: #64748b;
+    
+    --theme-accent: #3b82f6;
+    --theme-accent-2: #2563eb;
+    --theme-accent-glow: rgba(59, 130, 246, 0.18);
+
+    --theme-text: #f8fafc;
+    --theme-bg-invert: #000000;
+    --theme-selection-text: #ffffff;
+
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-strong-bg: rgba(2, 6, 23, 0.7);
+    --glass-strong-border: rgba(255, 255, 255, 0.06);
+    --gradient-glow-stop1: var(--theme-accent-glow);
+    --text-gradient-start: #f8fafc;
+    --text-gradient-end: #94a3b8;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
 
   body {
-    background: var(--color-ink);
-    color: #ffffff;
+    background: var(--theme-ink);
+    color: var(--theme-text);
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: #000;
+    background: var(--theme-accent);
+    color: var(--theme-selection-text);
   }
 
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a0a0b;
+    background: var(--theme-ink-2);
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a2a2e;
+    background: var(--theme-charcoal);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3a3a3e;
+    background: var(--theme-charcoal-2);
   }
 }
 
@@ -73,29 +160,29 @@
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
   }
 
   .glass-strong {
-    background: rgba(10, 10, 11, 0.7);
+    background: var(--glass-strong-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-strong-border);
   }
 
   .gradient-glow {
     background: radial-gradient(
       circle at 50% 50%,
-      var(--color-accent-glow) 0%,
+      var(--gradient-glow-stop1) 0%,
       transparent 60%
     );
   }
 
   .text-gradient {
-    background: linear-gradient(180deg, #ffffff 0%, #8a8a8f 100%);
+    background: linear-gradient(180deg, var(--text-gradient-start) 0%, var(--text-gradient-end) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

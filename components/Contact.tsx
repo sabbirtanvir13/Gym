@@ -13,9 +13,9 @@ import {
 import SectionHeading from "./SectionHeading";
 
 const CONTACT_INFO = [
-  { icon: MapPin, label: "Address", value: "123 Fitness Avenue, Downtown, New York, NY 10001" },
+  { icon: MapPin, label: "Address", value: "Plot-112, Block 1, Road 1, Goyalkhali, Khulna, Bangladesh" },
   { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-  { icon: Mail, label: "Email", value: "hello@titanfitness.com" },
+  { icon: Mail, label: "Email", value: "hello@ahmedgym.com" },
   { icon: Clock, label: "Opening Hours", value: "Mon–Fri: 5:00 AM – 11:00 PM\nSat–Sun: 6:00 AM – 10:00 PM" },
 ];
 

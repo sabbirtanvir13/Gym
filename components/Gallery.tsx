@@ -40,7 +40,7 @@ export default function Gallery() {
         <SectionHeading
           eyebrow="Gallery"
           title="INSIDE THE CLUB"
-          subtitle="Take a visual tour of our premium facilities and the energy that defines TITAN."
+          subtitle="Take a visual tour of our premium facilities and the energy that defines AHMED GYM & CAFE 29."
         />
 
         <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
