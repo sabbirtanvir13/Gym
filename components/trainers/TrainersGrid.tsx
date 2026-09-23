@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Users, Frown } from "lucide-react";
 import { Trainer } from "@/types/trainer";
-import { TRAINERS_DATA } from "@/lib/trainers-data";
+import { TRAINERS_DATA } from "@/lib/data/trainers-data";
 import TrainerFilters from "./TrainerFilters";
 import TrainerCard from "./TrainerCard";
 import TrainerDetailModal from "./TrainerDetailModal";

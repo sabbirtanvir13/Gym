@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, Award, Phone, ArrowRight } from "lucide-react";
 import { Trainer } from "@/types/trainer";
-import { InstagramIcon, XIcon } from "@/components/SocialIcons";
+import { InstagramIcon, XIcon } from "@/components/ui/SocialIcons";
 
 interface TrainerCardProps {
   trainer: Trainer;

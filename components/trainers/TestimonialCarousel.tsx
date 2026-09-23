@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TRAINERS_DATA } from "@/lib/trainers-data";
+import { TRAINERS_DATA } from "@/lib/data/trainers-data";
 import type { Trainer } from "@/types/trainer";
 
 /**

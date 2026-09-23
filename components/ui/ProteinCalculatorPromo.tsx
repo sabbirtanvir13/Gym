@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Calculator } from "lucide-react";
-import { IMAGES } from "@/lib/data";
+import { IMAGES } from "@/lib/data/data";
 import Link from "next/link";
 
 export default function ProteinCalculatorPromo() {

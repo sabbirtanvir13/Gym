@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import AccentSwitcher from "@/components/AccentSwitcher";
+import AccentSwitcher from "@/components/theme/AccentSwitcher";
 
 const MAIN_LINKS = [
   { label: "Home", href: "#home" },

@@ -1,6 +1,6 @@
 "use client";
 
-import { useAccentTheme, ACCENT_THEMES } from "@/components/AccentThemeProvider";
+import { useAccentTheme, ACCENT_THEMES } from "./AccentThemeProvider";
 import { motion } from "framer-motion";
 import { useState } from "react";
 

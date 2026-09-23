@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Sun, Moon, Dumbbell, Sparkles, Clock, CalendarX2 } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 // ─── MOCK DATA ─────────────────────────────────────────────────────────
 // Ei data gulo apni apnar gym er actual time onujayi change kore nite parben
@@ -11,9 +11,9 @@ const SCHEDULE_DATA = [
     id: "men",
     title: "MEN'S SCHEDULE",
     subtitle: "Regular 6 Days (Sat - Thu)",
-    theme: "from-blue-600/10 via-blue-600/5 to-transparent border-blue-500/20",
-    accent: "text-blue-400",
-    glow: "shadow-[0_0_30px_rgba(59,130,246,0.15)]",
+    theme: "from-accent/[0.08] via-white/[0.02] to-transparent border-accent/30",
+    accent: "text-accent",
+    glow: "hover:shadow-[0_0_40px_var(--theme-accent-glow)]",
     icon: Dumbbell,
     morning: [
       { time: "06:00 AM - 08:00 AM", name: "Early Bird Fitness & Cardio" },
@@ -28,9 +28,9 @@ const SCHEDULE_DATA = [
     id: "women",
     title: "WOMEN'S SCHEDULE",
     subtitle: "Regular 6 Days (Sat - Thu)",
-    theme: "from-pink-600/10 via-pink-600/5 to-transparent border-pink-500/20",
-    accent: "text-pink-400",
-    glow: "shadow-[0_0_30px_rgba(236,72,153,0.15)]",
+    theme: "from-secondary/[0.08] via-white/[0.02] to-transparent border-secondary/30",
+    accent: "text-secondary",
+    glow: "hover:shadow-[0_0_40px_var(--theme-secondary-glow)]",
     icon: Sparkles,
     morning: [
       { time: "09:00 AM - 10:30 AM", name: "Morning Yoga & Aerobics" },
@@ -49,7 +49,7 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: i * 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
 
@@ -57,11 +57,11 @@ export default function Schedule() {
   return (
     <section
       id="schedule"
-      className="relative py-24 lg:py-32 overflow-hidden bg-[#020202]"
+      className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/5 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 h-[500px] w-[500px] translate-x-1/2 rounded-full bg-pink-500/5 blur-[150px] pointer-events-none" />
+      <div className="pointer-events-none absolute -left-40 top-1/3 h-[500px] w-[500px] rounded-full bg-[var(--theme-accent-glow)] blur-[140px] opacity-25" />
+      <div className="pointer-events-none absolute -right-40 bottom-1/3 h-[450px] w-[450px] rounded-full bg-[var(--theme-secondary-glow)] blur-[140px] opacity-20" />
 
       <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
         <SectionHeading
@@ -73,9 +73,9 @@ export default function Schedule() {
 
         {/* Top Info Badge */}
         <div className="mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-5 py-2 backdrop-blur-md">
             <CalendarX2 size={16} className="text-accent" />
-            <span className="text-sm font-bold uppercase tracking-widest text-white/80">
+            <span className="text-sm font-bold uppercase tracking-widest text-accent">
               Friday Closed / Maintenance
             </span>
           </div>
@@ -94,12 +94,12 @@ export default function Schedule() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={cardVariants}
-                className={`relative overflow-hidden rounded-3xl border bg-gradient-to-b p-6 sm:p-10 backdrop-blur-xl ${group.theme} ${group.glow}`}
+                className={`relative overflow-hidden rounded-3xl border bg-gradient-to-b p-6 sm:p-10 backdrop-blur-xl transition-all duration-500 ${group.theme} ${group.glow}`}
               >
                 {/* Header Section */}
                 <div className="mb-10 flex items-center gap-5">
                   <div
-                    className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-black/40 border border-white/5 backdrop-blur-md ${group.accent}`}
+                    className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md ${group.accent}`}
                   >
                     <MainIcon size={32} />
                   </div>
@@ -107,7 +107,7 @@ export default function Schedule() {
                     <h2 className="font-display text-3xl font-black uppercase tracking-tight text-white">
                       {group.title}
                     </h2>
-                    <p className="mt-1 text-sm font-bold uppercase tracking-widest text-white/50">
+                    <p className="mt-1 text-sm font-bold uppercase tracking-widest text-ash">
                       {group.subtitle}
                     </p>
                   </div>
@@ -115,9 +115,9 @@ export default function Schedule() {
 
                 {/* Morning Slots */}
                 <div className="mb-8">
-                  <div className="mb-4 flex items-center gap-2 border-b border-white/5 pb-3">
-                    <Sun size={18} className="text-yellow-500" />
-                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/80">
+                  <div className="mb-4 flex items-center gap-2 border-b border-white/8 pb-3">
+                    <Sun size={18} className="text-amber-400" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/90">
                       Morning Shifts
                     </h3>
                   </div>
@@ -125,7 +125,7 @@ export default function Schedule() {
                     {group.morning.map((slot, idx) => (
                       <div
                         key={idx}
-                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl bg-black/20 p-4 transition-colors hover:bg-black/40"
+                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl border border-white/6 bg-white/[0.02] p-4 transition-all duration-300 hover:border-accent/30 hover:bg-white/[0.04]"
                       >
                         <div className="flex items-center gap-3">
                           <Clock size={16} className={group.accent} />
@@ -133,7 +133,7 @@ export default function Schedule() {
                             {slot.time}
                           </span>
                         </div>
-                        <span className="text-sm font-medium text-white/60 sm:text-right">
+                        <span className="text-sm font-medium text-ash sm:text-right group-hover:text-white transition-colors">
                           {slot.name}
                         </span>
                       </div>
@@ -143,9 +143,9 @@ export default function Schedule() {
 
                 {/* Evening Slots */}
                 <div>
-                  <div className="mb-4 flex items-center gap-2 border-b border-white/5 pb-3">
-                    <Moon size={18} className="text-indigo-400" />
-                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/80">
+                  <div className="mb-4 flex items-center gap-2 border-b border-white/8 pb-3">
+                    <Moon size={18} className="text-accent" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/90">
                       Evening Shifts
                     </h3>
                   </div>
@@ -153,7 +153,7 @@ export default function Schedule() {
                     {group.evening.map((slot, idx) => (
                       <div
                         key={idx}
-                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl bg-black/20 p-4 transition-colors hover:bg-black/40"
+                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl border border-white/6 bg-white/[0.02] p-4 transition-all duration-300 hover:border-accent/30 hover:bg-white/[0.04]"
                       >
                         <div className="flex items-center gap-3">
                           <Clock size={16} className={group.accent} />
@@ -161,7 +161,7 @@ export default function Schedule() {
                             {slot.time}
                           </span>
                         </div>
-                        <span className="text-sm font-medium text-white/60 sm:text-right">
+                        <span className="text-sm font-medium text-ash sm:text-right group-hover:text-white transition-colors">
                           {slot.name}
                         </span>
                       </div>

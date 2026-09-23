@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
-import { AccentThemeProvider } from "@/components/AccentThemeProvider";
+import { AccentThemeProvider } from "@/components/theme/AccentThemeProvider";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/Footer/Footer";
 

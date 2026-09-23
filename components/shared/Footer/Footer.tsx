@@ -9,7 +9,7 @@ import {
   Phone,
   ArrowUp,
 } from "lucide-react";
-import { InstagramIcon, FacebookIcon, XIcon } from "@/components/SocialIcons";
+import { InstagramIcon, FacebookIcon, XIcon } from "@/components/ui/SocialIcons";
 
 const QUICK_LINKS = [
   { label: "About", href: "/#about" },

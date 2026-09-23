@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, Users, ArrowRight } from "lucide-react";
-import { TRAINERS } from "@/lib/data";
-import { InstagramIcon, FacebookIcon, XIcon } from "./SocialIcons";
+import { TRAINERS } from "@/lib/data/data";
+import { InstagramIcon, FacebookIcon, XIcon } from "@/components/ui/SocialIcons";
 
 const CHECKLIST = [
   "Certified & experienced trainers",

@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, BadgeCheck, Quote } from "lucide-react";
-import { TESTIMONIALS } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { TESTIMONIALS } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 /* ─── Ultra-Smooth Motion Variants ─────────────────────────────────────── */
 const slideVariants = {
@@ -140,7 +140,7 @@ export default function Testimonials() {
                       <Star
                         key={i}
                         size={20}
-                        className="fill-accent text-accent drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]"
+                        className="fill-accent text-accent drop-shadow-[0_0_10px_var(--theme-accent-glow)]"
                       />
                     ))}
                     <span className="ml-3 text-xs font-bold tracking-widest text-white/50 uppercase">
@@ -172,7 +172,7 @@ export default function Testimonials() {
             </motion.div>
           </AnimatePresence>
 
-          {/* ── Ultra-Modern Slider Navigation Controls ─────────────────────── */}
+          {/* ── Ultra-Modern Slider Navigation Controls */}
           <div className="mt-12 flex items-center justify-between lg:justify-end gap-8 px-2">
             {/* Pagination Line Indicators */}
             <div className="flex items-center gap-2.5">
@@ -188,7 +188,7 @@ export default function Testimonials() {
                 >
                   <span
                     className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${i === current
-                        ? "w-12 bg-accent shadow-[0_0_15px_rgba(250,204,21,0.6)]"
+                        ? "w-12 bg-accent shadow-[0_0_15px_var(--theme-accent-glow)]"
                         : "w-3 bg-white/20 group-hover:bg-white/40 group-hover:w-6"
                       }`}
                   />

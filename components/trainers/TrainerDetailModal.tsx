@@ -14,7 +14,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Trainer } from "@/types/trainer";
-import { InstagramIcon, XIcon } from "@/components/SocialIcons";
+import { InstagramIcon, XIcon } from "@/components/ui/SocialIcons";
 
 interface TrainerDetailModalProps {
   trainer: Trainer | null;
