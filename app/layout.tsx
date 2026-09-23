@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   description:
     "Build your strongest self. Premium gym with expert trainers, modern equipment, and a motivating environment.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 

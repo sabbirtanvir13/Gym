@@ -1,4 +1,4 @@
-import { Trainer } from "@/types/trainer";
+﻿import { Trainer } from "@/types/trainer";
 
 export const TRAINERS_DATA: Trainer[] = [
   // ── 2 FEMALE CRICKETER OWNERS ───────────────────────────────────────
@@ -19,7 +19,7 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "",
     rating: 5.0,
     reviewsCount: 210,
-    image: "/images/rumana_placeholder.jpg", // placeholder image
+    image: "/mmentor/orn1.jpg",
     certifications: [
       "BD National Team Professional Athlete",
       "ICC High Performance Fitness Certification",
@@ -259,7 +259,7 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "5+ Years",
     rating: 4.8,
     reviewsCount: 142,
-    image: "/images/farhana_placeholder.jpg", // placeholder image
+    image: "/mmentor/t5.jpg",
     certifications: [
       "Certified Pilates Instructor",
       "Yoga Alliance RYT 200",
@@ -302,7 +302,7 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "7+ Years",
     rating: 4.9,
     reviewsCount: 185,
-    image: "/mmentor/t5.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
+    image: "/mmentor/t6.jfif",
     certifications: [
       "ISSA Certified Fitness Trainer",
       "Advanced HIIT Specialist",
