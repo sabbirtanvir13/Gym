@@ -20,7 +20,7 @@ export const IMAGES = {
   },
   trainers: ["/mmentor/t1.png", "/mmentor/t2.png", "/mmentor/t3.png"],
   gallery: [
-    "/mmentor/masin/m1.png",
+    "/video/1GB.mp4",
     "/mmentor/masin/m2.png",
     "/mmentor/masin/m3.png",
     "https://images.pexels.com/photos/17956264/pexels-photo-17956264.jpeg?auto=compress&cs=tinysrgb&w=800",
