@@ -31,8 +31,8 @@ function PhoneCallIcon() {
 
 const buttons = [
   {
-    href: "tel:01711677902",
-    label: "Call 01711-677902",
+    href: "tel:01777829308",
+    label: "Call 01777-829308",
     bg: "#FF4500",
     shadow: "#FF4500",
     icon: <PhoneCallIcon />,
@@ -47,7 +47,7 @@ const buttons = [
     delay: 1.3,
   },
   {
-    href: "https://wa.me/8801711677902",
+    href: "https://api.whatsapp.com/send?phone=8801777829308",
     label: "Chat on WhatsApp",
     bg: "#25D366",
     shadow: "#25D366",

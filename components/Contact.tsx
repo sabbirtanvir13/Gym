@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 import {
   MapPin,
   Phone,
@@ -14,7 +15,7 @@ import SectionHeading from "./SectionHeading";
 
 const CONTACT_INFO = [
   { icon: MapPin, label: "Address", value: "Plot-112, Block 1, Road 1, Goyalkhali, Khulna, Bangladesh" },
-  { icon: Phone, label: "Phone", value: "01711-677902", href: "tel:01711677902" },
+  { icon: Phone, label: "Phone", value: "01777-829308", href: "tel:01777829308" },
   { icon: Mail, label: "Email", value: "hello@ahmedgym.com", href: "mailto:hello@ahmedgym.com" },
   { icon: Clock, label: "Opening Hours", value: "Mon–Fri: 5:00 AM – 11:00 PM\nSat–Sun: 6:00 AM – 10:00 PM" },
 ];
@@ -45,15 +46,39 @@ export default function Contact() {
       `*Email:* ${formData.email}\n\n` +
       `*Message:*\n${formData.message}`;
 
-    const waUrl = `https://wa.me/8801777829308?text=${encodeURIComponent(
+    const waUrl = `https://api.whatsapp.com/send?phone=8801777829308&text=${encodeURIComponent(
       formattedMessage
     )}`;
 
+    // Open WhatsApp in a new tab
     window.open(waUrl, "_blank");
 
+    // Show SweetAlert confirmation modal
+    Swal.fire({
+      title: "Message Sent to WhatsApp!",
+      text: "Your message details have been forwarded to WhatsApp (01777-829308).",
+      icon: "success",
+      confirmButtonText: "Open WhatsApp Chat",
+      confirmButtonColor: "#25D366",
+      showCancelButton: true,
+      cancelButtonText: "Close",
+      cancelButtonColor: "#333333",
+      background: "#161619",
+      color: "#FFFFFF",
+      customClass: {
+        popup: "rounded-3xl border border-white/10 shadow-2xl",
+        confirmButton: "rounded-full px-6 py-2.5 font-bold text-sm",
+        cancelButton: "rounded-full px-6 py-2.5 font-bold text-sm",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.open(waUrl, "_blank");
+      }
+    });
+
+    setFormData({ name: "", phone: "", email: "", message: "" });
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", phone: "", email: "", message: "" });
     }, 4000);
   };
 
@@ -167,7 +192,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    placeholder="01711-677902"
+                    placeholder="01777-829308"
                     className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-ash-2 focus:border-accent/50"
                   />
                 </div>
