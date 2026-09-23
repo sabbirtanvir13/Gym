@@ -134,10 +134,9 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
-
-
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
@@ -174,6 +173,7 @@ export const TRAINERS_DATA: Trainer[] = [
     achievements: ["Regional Powerlifting Champion"],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
   {
@@ -203,6 +203,7 @@ export const TRAINERS_DATA: Trainer[] = [
     achievements: ["CrossFit Regional Qualifier"],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
   {
@@ -238,6 +239,7 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
     isOwner: false,
     isManager: true,
@@ -283,6 +285,7 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
   {
@@ -326,9 +329,9 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
-
 ];
 
 export const SPECIALTY_FILTERS = [
