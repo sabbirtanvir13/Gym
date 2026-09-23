@@ -329,9 +329,9 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
-      facebook: "https://facebook.com",
     },
   },
+
 ];
 
 export const SPECIALTY_FILTERS = [
