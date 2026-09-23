@@ -30,10 +30,10 @@ export default function TrainerFilters({
   ownerCount,
 }: TrainerFiltersProps) {
   const genderTabs = [
-    { id: "all", label: "All Trainers", count: totalCount },
-    { id: "female", label: "Female Coaches (৩ জন)", count: femaleCount },
-    { id: "male", label: "Male Coaches (৩ জন)", count: maleCount },
     { id: "owner", label: "Owner", count: ownerCount },
+    { id: "all", label: "All Trainers", count: totalCount },
+    { id: "female", label: "Female Coaches", count: femaleCount },
+    { id: "male", label: "Male Coaches", count: maleCount },
   ] as const;
 
   return (

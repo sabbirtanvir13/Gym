@@ -28,6 +28,7 @@ export interface Trainer {
     twitter?: string;
     linkedin?: string;
     youtube?: string;
+    facebook?: string;
   };
   isOwner?: boolean;
 }
