@@ -21,11 +21,40 @@ const CONTACT_INFO = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+
+    const formattedMessage = `*New Inquiry - Ahmed Gym & Cafe 29*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Email:* ${formData.email}\n\n` +
+      `*Message:*\n${formData.message}`;
+
+    const waUrl = `https://wa.me/8801777829308?text=${encodeURIComponent(
+      formattedMessage
+    )}`;
+
+    window.open(waUrl, "_blank");
+
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    }, 4000);
   };
 
   return (
@@ -118,6 +147,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                   placeholder="John Doe"
                   className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-ash-2 focus:border-accent/50"
@@ -131,6 +163,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     required
                     placeholder="01711-677902"
                     className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-ash-2 focus:border-accent/50"
@@ -142,6 +177,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     placeholder="john@example.com"
                     className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-ash-2 focus:border-accent/50"
@@ -154,6 +192,9 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                   rows={5}
                   placeholder="Tell us about your fitness goals..."
@@ -163,11 +204,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold transition-all duration-300 ${
-                  submitted
+                className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold transition-all duration-300 ${submitted
                     ? "bg-green-500 text-white"
                     : "bg-accent text-black hover:scale-[1.02]"
-                }`}
+                  }`}
               >
                 {submitted ? (
                   <>
