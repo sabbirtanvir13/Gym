@@ -172,7 +172,7 @@ export default function Testimonials() {
             </motion.div>
           </AnimatePresence>
 
-          {/* ── Ultra-Modern Slider Navigation Controls ─────────────────────── */}
+          {/* ── Ultra-Modern Slider Navigation Controls */}
           <div className="mt-12 flex items-center justify-between lg:justify-end gap-8 px-2">
             {/* Pagination Line Indicators */}
             <div className="flex items-center gap-2.5">
@@ -187,11 +187,10 @@ export default function Testimonials() {
                   aria-label={`Go to slide ${i + 1}`}
                 >
                   <span
-                    className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                      i === current
+                    className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${i === current
                         ? "w-12 bg-accent shadow-[0_0_15px_var(--theme-accent-glow)]"
                         : "w-3 bg-white/20 group-hover:bg-white/40 group-hover:w-6"
-                    }`}
+                      }`}
                   />
                 </button>
               ))}
