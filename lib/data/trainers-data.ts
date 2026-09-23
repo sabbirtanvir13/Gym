@@ -100,9 +100,9 @@ export const TRAINERS_DATA: Trainer[] = [
 
   // ── REGULAR FEMALE TRAINERS ──────────────────────────────────────────
   {
-    id: "elena-voss",
-    name: "Elena Voss",
-    gender: "female",
+    id: "Abir Parves",
+    name: "Abir Parves",
+    gender: "male",
     role: "Senior Personal Trainer & Nutritionist",
     tagline:
       "Transform your body composition through science and sustainable habits.",
@@ -232,8 +232,8 @@ export const TRAINERS_DATA: Trainer[] = [
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
-    id: "alex-vance",
-    name: "Alex Vance",
+    id: "Shemul Afsan",
+    name: "Shemul Afsan",
     gender: "male",
     role: "Head Strength Coach & Power Specialist",
     tagline:
@@ -268,8 +268,8 @@ export const TRAINERS_DATA: Trainer[] = [
     },
   },
   {
-    id: "marcus-reed",
-    name: "Marcus Reed",
+    id: "Masrafi Mahmud",
+    name: "Masrafi Mahmud",
     gender: "male",
     role: "CrossFit & Functional Fitness Specialist",
     tagline:
@@ -297,10 +297,10 @@ export const TRAINERS_DATA: Trainer[] = [
     },
   },
   {
-    id: "tariq-ahmed",
-    name: "Tariq Ahmed",
+    id: "Tanveer Ahmed",
+    name: "Tanveer Ahmed",
     gender: "male",
-    role: "Founder & Master Rehabilitation Coach",
+    role: "Manager",
     tagline:
       "Sculpt symmetrical muscle while protecting joints and correcting posture.",
     specialty: "Hypertrophy & Posture Rehab",
