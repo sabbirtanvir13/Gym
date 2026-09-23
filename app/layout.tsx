@@ -34,6 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${sora.variable} h-full antialiased`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full bg-ink text-white antialiased">
         <AccentThemeProvider>

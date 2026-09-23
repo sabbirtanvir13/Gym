@@ -5,15 +5,21 @@ export const TRAINERS_DATA: Trainer[] = [
   {
     id: "elena-voss",
     name: "Elena Voss",
-    gender: "female",
+    gender: "male",
     role: "Senior Personal Trainer & Nutritionist",
-    tagline: "Transform your body composition through science and sustainable habits.",
+    tagline:
+      "Transform your body composition through science and sustainable habits.",
     specialty: "Weight Loss & Toning",
-    specialties: ["Weight Loss", "Toning", "Metabolic Conditioning", "Nutrition Planning"],
+    specialties: [
+      "Weight Loss",
+      "Toning",
+      "Metabolic Conditioning",
+      "Nutrition Planning",
+    ],
     experience: "6+ Years",
     rating: 4.9,
     reviewsCount: 138,
-    image: "https://images.pexels.com/photos/10551491/pexels-photo-10551491.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/t1.png",
     certifications: [
       "NASM Certified Personal Trainer",
       "Precision Nutrition Level 1 Coach",
@@ -21,7 +27,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "CPR & First Aid Certified",
     ],
     bio: "Elena specializes in sustainable fat loss, body recomposition, and empowering individuals with lifelong nutritional habits. Her supportive yet challenging approach guarantees measurable changes inside and outside the gym.",
-    philosophy: "Discipline creates freedom. We don't do crash diets; we build strong, resilient bodies with proven scientific methods.",
+    philosophy:
+      "Discipline creates freedom. We don't do crash diets; we build strong, resilient bodies with proven scientific methods.",
     stats: [
       { label: "Clients Transformed", value: "150+" },
       { label: "Success Rate", value: "98.5%" },
@@ -46,15 +53,21 @@ export const TRAINERS_DATA: Trainer[] = [
   {
     id: "sara-khan",
     name: "Sara Khan",
-    gender: "female",
+    gender: "male",
     role: "Lead Mobility Coach & Yoga Director",
-    tagline: "Master movement mechanics, bulletproof your joints, and unlock freedom.",
+    tagline:
+      "Master movement mechanics, bulletproof your joints, and unlock freedom.",
     specialty: "Mobility & Recovery",
-    specialties: ["Mobility & Flexibility", "Yoga Flow", "Core Stability", "Post-Injury Rehab"],
+    specialties: [
+      "Mobility & Flexibility",
+      "Yoga Flow",
+      "Core Stability",
+      "Post-Injury Rehab",
+    ],
     experience: "8+ Years",
     rating: 5.0,
     reviewsCount: 184,
-    image: "https://images.pexels.com/photos/6739935/pexels-photo-6739935.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/t2.png",
     certifications: [
       "RYT-500 Master Yoga Instructor",
       "FMS (Functional Movement Screen) Certified",
@@ -62,7 +75,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "Mindfulness & Breathwork Master Coach",
     ],
     bio: "Sara bridges traditional mindfulness and modern biomechanics. Whether you are an athlete dealing with stiff hips or a professional suffering from desk-bound posture, Sara restores your natural posture and peak mobility.",
-    philosophy: "You are only as young as your spine and joints. Move freely to live fiercely.",
+    philosophy:
+      "You are only as young as your spine and joints. Move freely to live fiercely.",
     stats: [
       { label: "Athletes Coached", value: "240+" },
       { label: "Workshops Hosted", value: "35+" },
@@ -86,15 +100,21 @@ export const TRAINERS_DATA: Trainer[] = [
   {
     id: "maya-lin",
     name: "Maya Lin",
-    gender: "female",
+    gender: "male",
     role: "HIIT & Athletic Conditioning Coach",
-    tagline: "Build unbreakable cardiovascular endurance and explosive athleticism.",
+    tagline:
+      "Build unbreakable cardiovascular endurance and explosive athleticism.",
     specialty: "HIIT & Conditioning",
-    specialties: ["HIIT & Tabata", "Athletic Conditioning", "Calisthenics", "Speed & Agility"],
+    specialties: [
+      "HIIT & Tabata",
+      "Athletic Conditioning",
+      "Calisthenics",
+      "Speed & Agility",
+    ],
     experience: "5+ Years",
     rating: 4.9,
     reviewsCount: 112,
-    image: "https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/t3.png",
     certifications: [
       "ISSA Master Personal Trainer",
       "CrossFit Level 2 Trainer (CF-L2)",
@@ -102,7 +122,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "USA Track & Field Level 1 Coach",
     ],
     bio: "Maya brings explosive energy to every training block. She blends high-intensity interval conditioning with calisthenics bodyweight mastery to produce unmatched stamina and shredded muscle tone.",
-    philosophy: "Comfort is the enemy of progress. When your lungs burn and muscles ache, that is where champions are forged.",
+    philosophy:
+      "Comfort is the enemy of progress. When your lungs burn and muscles ache, that is where champions are forged.",
     stats: [
       { label: "Active Clients", value: "115+" },
       { label: "Calories Torched/Session", value: "700+ kcal" },
@@ -130,13 +151,20 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Alex Rahman",
     gender: "male",
     role: "Head Strength Coach & Power Specialist",
-    tagline: "Master progressive barbell overload and unlock your peak physical power.",
+    tagline:
+      "Master progressive barbell overload and unlock your peak physical power.",
     specialty: "Strength & Powerlifting",
-    specialties: ["Powerlifting", "Heavy Barbell Training", "Hypertrophy", "Biomechanics"],
+    specialties: [
+      "Powerlifting",
+      "Heavy Barbell Training",
+      "Hypertrophy",
+      "Biomechanics",
+    ],
     experience: "9+ Years",
     rating: 5.0,
     reviewsCount: 220,
-    image: "https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&w=800",
     certifications: [
       "CSCS (Certified Strength & Conditioning Specialist)",
       "B.Sc. in Exercise & Sports Science",
@@ -144,7 +172,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "Westside Barbell Special Strengths Certified",
     ],
     bio: "Alex leads our performance department with unmatched technical mastery. Having trained competitive powerlifters and everyday warriors alike, he excels at fixing technique flaws and packing dense, explosive muscle on any frame.",
-    philosophy: "Progress is purely math, biomechanics, and relentless effort. Respect the barbell, and it will reward you.",
+    philosophy:
+      "Progress is purely math, biomechanics, and relentless effort. Respect the barbell, and it will reward you.",
     stats: [
       { label: "Powerlifters Coached", value: "85+" },
       { label: "Average Strength Boost", value: "+38%" },
@@ -171,13 +200,20 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Marcus Lee",
     gender: "male",
     role: "CrossFit & Functional Fitness Director",
-    tagline: "Forging complete physical preparedness for any real-world challenge.",
+    tagline:
+      "Forging complete physical preparedness for any real-world challenge.",
     specialty: "CrossFit & Olympic Lifting",
-    specialties: ["CrossFit", "Olympic Weightlifting", "Functional Endurance", "Gymnastics"],
+    specialties: [
+      "CrossFit",
+      "Olympic Weightlifting",
+      "Functional Endurance",
+      "Gymnastics",
+    ],
     experience: "7+ Years",
     rating: 4.9,
     reviewsCount: 165,
-    image: "https://images.pexels.com/photos/21633393/pexels-photo-21633393.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/21633393/pexels-photo-21633393.jpeg?auto=compress&cs=tinysrgb&w=800",
     certifications: [
       "Certified CrossFit Level 3 Trainer (CCFT)",
       "USAW (USA Weightlifting) Advanced Sports Performance Coach",
@@ -185,7 +221,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "First Aid & Advanced Athletic Taping",
     ],
     bio: "Marcus fuses Olympic barbell cycling, high-skill gymnastics, and engine-building conditioning. His workouts are designed to transform you into an agile, resilient, and unstoppable athletic powerhouse.",
-    philosophy: "Prepare for the unknown and the unknowable. When your body is versatile, your mind is invincible.",
+    philosophy:
+      "Prepare for the unknown and the unknowable. When your body is versatile, your mind is invincible.",
     stats: [
       { label: "CrossFit Competitors", value: "190+" },
       { label: "PRs Hit This Year", value: "540+" },
@@ -211,13 +248,20 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Tariq Ahmed",
     gender: "male",
     role: "Hypertrophy & Posture Rehabilitation Coach",
-    tagline: "Sculpt symmetrical muscle while protecting joints and correcting posture.",
+    tagline:
+      "Sculpt symmetrical muscle while protecting joints and correcting posture.",
     specialty: "Hypertrophy & Posture Rehab",
-    specialties: ["Aesthetic Bodybuilding", "Hypertrophy", "Posture Correction", "Injury Prevention"],
+    specialties: [
+      "Aesthetic Bodybuilding",
+      "Hypertrophy",
+      "Posture Correction",
+      "Injury Prevention",
+    ],
     experience: "10+ Years",
     rating: 5.0,
     reviewsCount: 245,
-    image: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image:
+      "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=800",
     certifications: [
       "ACE Master Personal Trainer",
       "EXOS Performance Specialist (XPS)",
@@ -225,7 +269,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "Advanced Biomechanics & Hypertrophy Specialist",
     ],
     bio: "With a decade of clinical and bodybuilding coaching experience, Tariq specializes in building balanced, aesthetic physiques while eliminating chronic shoulder, back, and hip issues caused by modern lifestyles.",
-    philosophy: "Form follows function, and symmetry creates art. Train intelligently so you can train for life.",
+    philosophy:
+      "Form follows function, and symmetry creates art. Train intelligently so you can train for life.",
     stats: [
       { label: "Lifetime Clients", value: "420+" },
       { label: "Injury Recovery Rate", value: "99.2%" },
@@ -259,7 +304,11 @@ export const SPECIALTY_FILTERS = [
 ] as const;
 
 export const TEAM_METRICS = [
-  { value: "6", suffix: " Master Coaches", label: "3 Male & 3 Female Elite Trainers" },
+  {
+    value: "6",
+    suffix: " Master Coaches",
+    label: "3 Male & 3 Female Elite Trainers",
+  },
   { value: "100%", suffix: "", label: "Internationally Certified" },
   { value: "12k+", suffix: "", label: "1-on-1 Sessions Completed" },
   { value: "4.96", suffix: " ★", label: "Average Member Rating" },
