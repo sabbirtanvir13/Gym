@@ -1,12 +1,12 @@
 import { Trainer } from "@/types/trainer";
 
 export const TRAINERS_DATA: Trainer[] = [
-  // ── 2 FEMALE CRICKETER CO-OWNERS & COACH ────────────────────────────
+  // ── 2 FEMALE CRICKETER OWNERS ───────────────────────────────────────
   {
-    id: "sobhana-mostary",
-    name: "Sobhana Mostary",
+    id: "Rumana Ahmed",
+    name: "Rumana Ahmed",
     gender: "female",
-    role: "Co-Owner & BD National Cricketer",
+    role: "Owner & BD National Cricketer",
     tagline:
       "Bangladesh National Women's Cricket Team Athlete & Fitness Specialist.",
     specialty: "Athletic Conditioning",
@@ -16,10 +16,10 @@ export const TRAINERS_DATA: Trainer[] = [
       "Core Stability",
       "Athletic Performance",
     ],
-    experience: "6+ Years",
+    experience: "",
     rating: 5.0,
     reviewsCount: 210,
-    image: "/mmentor/orn1.jpg",
+    image: "/images/rumana_placeholder.jpg", // placeholder image
     certifications: [
       "BD National Team Professional Athlete",
       "ICC High Performance Fitness Certification",
@@ -29,11 +29,7 @@ export const TRAINERS_DATA: Trainer[] = [
     bio: "Sobhana Mostary is an active middle-order batter for the Bangladesh Women's National Cricket Team and Co-Owner of Ahmed Gym & Cafe 29. She brings international sports conditioning and top-tier athletic discipline to our fitness community.",
     philosophy:
       "Representing your country starts with mastering your body. Discipline and consistency turn dreams into reality.",
-    stats: [
-      { label: "International Matches", value: "50+" },
-      { label: "Athletes Trained", value: "180+" },
-      { label: "Client Satisfaction", value: "99.5%" },
-    ],
+    stats: [],
     schedule: [
       "Mon - Thu: 07:00 AM - 12:00 PM",
       "Fri: 08:00 AM - 11:30 AM",
@@ -51,10 +47,10 @@ export const TRAINERS_DATA: Trainer[] = [
     isOwner: true,
   },
   {
-    id: "jahanara-alam",
-    name: "Jahanara Alam",
+    id: "AhMed ShuMana",
+    name: "AhMed ShuMana",
     gender: "female",
-    role: "Co-Owner & BD National Cricketer",
+    role: "Owner & BD National Cricketer",
     tagline:
       "Legendary Bangladesh National Pace Bowler & Master Fitness Coach.",
     specialty: "Strength & Endurance",
@@ -64,7 +60,7 @@ export const TRAINERS_DATA: Trainer[] = [
       "Body Recomposition",
       "Mobility & Recovery",
     ],
-    experience: "10+ Years",
+    experience: "",
     rating: 5.0,
     reviewsCount: 310,
     image: "/mmentor/orn2.jpg",
@@ -76,11 +72,7 @@ export const TRAINERS_DATA: Trainer[] = [
     bio: "Jahanara Alam is one of Bangladesh's most celebrated international cricketers and Co-Owner of Ahmed Gym. With over a decade of elite international competition, she inspires members to push past limits.",
     philosophy:
       "Hard work beats talent every single day. Train like a champion, live like a champion.",
-    stats: [
-      { label: "Intl Wickets", value: "100+" },
-      { label: "Years in Pro Sports", value: "12+" },
-      { label: "Coaching Hours", value: "4,000+" },
-    ],
+    stats: [],
     schedule: [
       "Sun - Thu: 08:00 AM - 01:00 PM",
       "Tue & Thu: 04:00 PM - 08:00 PM",
@@ -102,7 +94,7 @@ export const TRAINERS_DATA: Trainer[] = [
   {
     id: "elena-voss",
     name: "Elena Voss",
-    gender: "female",
+    gender: "male",
     role: "Senior Personal Trainer & Nutritionist",
     tagline:
       "Transform your body composition through science and sustainable habits.",
@@ -144,91 +136,8 @@ export const TRAINERS_DATA: Trainer[] = [
       instagram: "https://instagram.com",
     },
   },
-  {
-    id: "farhana-islam",
-    name: "Farhana Islam",
-    gender: "female",
-    role: "Lead Pilates & Flexibility Coach",
-    tagline: "Enhance your core strength, posture, and deep tissue mobility.",
-    specialty: "Mobility & Recovery",
-    specialties: [
-      "Pilates",
-      "Yoga & Stretching",
-      "Injury Rehabilitation",
-      "Mindfulness",
-    ],
-    experience: "5+ Years",
-    rating: 4.8,
-    reviewsCount: 142,
-    image: "/mmentor/t4.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
-    certifications: [
-      "Certified Pilates Instructor",
-      "Yoga Alliance RYT 200",
-      "Corrective Exercise Specialist (CES)",
-    ],
-    bio: "Farhana brings a calming yet challenging approach to fitness, focusing on core stability, posture correction, and full-body flexibility.",
-    philosophy:
-      "True strength starts from within. Build your core, align your posture, and the rest will naturally follow.",
-    stats: [
-      { label: "Clients Guided", value: "200+" },
-      { label: "Mobility Increase", value: "45%" },
-      { label: "Sessions Led", value: "1,500+" },
-    ],
-    schedule: [
-      "Sun - Wed: 08:00 AM - 01:00 PM",
-      "Thu - Sat: 04:00 PM - 08:00 PM",
-    ],
-    achievements: [
-      "Best Yoga & Pilates Mentor 2023",
-      "Specialist in Women's Health & Wellness",
-    ],
-    socials: {
-      instagram: "https://instagram.com",
-    },
-  },
-  {
-    id: "sarah-jenkins",
-    name: "Sarah Jenkins",
-    gender: "female",
-    role: "HIIT & Cardiovascular Expert",
-    tagline:
-      "Ignite your metabolism and push your cardiovascular limits to the max.",
-    specialty: "HIIT & Conditioning",
-    specialties: [
-      "HIIT (High-Intensity Interval Training)",
-      "Cardio Conditioning",
-      "Fat Burning",
-      "Endurance Building",
-    ],
-    experience: "7+ Years",
-    rating: 4.9,
-    reviewsCount: 185,
-    image: "/mmentor/t5.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
-    certifications: [
-      "ISSA Certified Fitness Trainer",
-      "Advanced HIIT Specialist",
-      "Group Fitness Certified (AFAA)",
-    ],
-    bio: "Sarah is an absolute powerhouse when it comes to high-intensity interval training. She ensures every session maximizes calorie burn and builds relentless stamina.",
-    philosophy:
-      "Don't stop when you're tired. Stop when you're done. Push your limits and discover what you're truly capable of.",
-    stats: [
-      { label: "Calories Burned", value: "1M+" },
-      { label: "Group Classes", value: "500+" },
-      { label: "Client Success", value: "97%" },
-    ],
-    schedule: [
-      "Mon - Thu: 04:00 PM - 09:00 PM",
-      "Fri - Sat: 08:00 AM - 12:00 PM",
-    ],
-    achievements: [
-      "Top Group Fitness Instructor 2025",
-      "Endurance Athlete Champion",
-    ],
-    socials: {
-      instagram: "https://instagram.com",
-    },
-  },
+
+
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
@@ -300,7 +209,7 @@ export const TRAINERS_DATA: Trainer[] = [
     id: "tariq-ahmed",
     name: "Tariq Ahmed",
     gender: "male",
-    role: "Founder & Master Rehabilitation Coach",
+    role: "Manager & Founder",
     tagline:
       "Sculpt symmetrical muscle while protecting joints and correcting posture.",
     specialty: "Hypertrophy & Posture Rehab",
@@ -310,7 +219,7 @@ export const TRAINERS_DATA: Trainer[] = [
       "Posture Correction",
       "Injury Prevention",
     ],
-    experience: "10+ Years",
+    experience: "",
     rating: 5.0,
     reviewsCount: 245,
     image: "/mmentor/orn3.jpg",
@@ -319,23 +228,107 @@ export const TRAINERS_DATA: Trainer[] = [
       "EXOS Performance Specialist (XPS)",
       "Corrective Exercise Specialist (CES)",
     ],
-    bio: "Founder of Ahmed Gym & Cafe 29. Tariq specializes in building balanced physiques and injury rehabilitation.",
+    bio: "Founder & Manager of Ahmed Gym & Cafe 29. Tariq specializes in building balanced physiques and injury rehabilitation.",
     philosophy: "Form follows function, and symmetry creates art.",
-    stats: [
-      { label: "Lifetime Clients", value: "420+" },
-      { label: "Injury Recovery Rate", value: "99.2%" },
-      { label: "Sessions Completed", value: "5,300+" },
-    ],
+    stats: [],
     schedule: ["Sun - Thu: 09:00 AM - 03:00 PM", "Sat: 10:00 AM - 02:00 PM"],
     achievements: [
-      "Founder & Chief Director at Ahmed Gym",
+      "Founder & Manager at Ahmed Gym & Cafe 29",
       "10+ Years Zero-Injury Training Record",
     ],
     socials: {
       instagram: "https://instagram.com",
     },
-    isOwner: true,
+    isOwner: false,
+    isManager: true,
   },
+
+  {
+    id: "farhana-islam",
+    name: "Farhana Islam",
+    gender: "female",
+    role: "Lead Pilates & Flexibility Coach",
+    tagline: "Enhance your core strength, posture, and deep tissue mobility.",
+    specialty: "Mobility & Recovery",
+    specialties: [
+      "Pilates",
+      "Yoga & Stretching",
+      "Injury Rehabilitation",
+      "Mindfulness",
+    ],
+    experience: "5+ Years",
+    rating: 4.8,
+    reviewsCount: 142,
+    image: "/images/farhana_placeholder.jpg", // placeholder image
+    certifications: [
+      "Certified Pilates Instructor",
+      "Yoga Alliance RYT 200",
+      "Corrective Exercise Specialist (CES)",
+    ],
+    bio: "Farhana brings a calming yet challenging approach to fitness, focusing on core stability, posture correction, and full-body flexibility.",
+    philosophy:
+      "True strength starts from within. Build your core, align your posture, and the rest will naturally follow.",
+    stats: [
+      { label: "Clients Guided", value: "200+" },
+      { label: "Mobility Increase", value: "45%" },
+      { label: "Sessions Led", value: "1,500+" },
+    ],
+    schedule: [
+      "Sun - Wed: 08:00 AM - 01:00 PM",
+      "Thu - Sat: 04:00 PM - 08:00 PM",
+    ],
+    achievements: [
+      "Best Yoga & Pilates Mentor 2023",
+      "Specialist in Women's Health & Wellness",
+    ],
+    socials: {
+      instagram: "https://instagram.com",
+    },
+  },
+  {
+    id: "sarah-jenkins",
+    name: "Sarah Jenkins",
+    gender: "female",
+    role: "HIIT & Cardiovascular Expert",
+    tagline:
+      "Ignite your metabolism and push your cardiovascular limits to the max.",
+    specialty: "HIIT & Conditioning",
+    specialties: [
+      "HIIT (High-Intensity Interval Training)",
+      "Cardio Conditioning",
+      "Fat Burning",
+      "Endurance Building",
+    ],
+    experience: "7+ Years",
+    rating: 4.9,
+    reviewsCount: 185,
+    image: "/mmentor/t5.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
+    certifications: [
+      "ISSA Certified Fitness Trainer",
+      "Advanced HIIT Specialist",
+      "Group Fitness Certified (AFAA)",
+    ],
+    bio: "Sarah is an absolute powerhouse when it comes to high-intensity interval training. She ensures every session maximizes calorie burn and builds relentless stamina.",
+    philosophy:
+      "Don't stop when you're tired. Stop when you're done. Push your limits and discover what you're truly capable of.",
+    stats: [
+      { label: "Calories Burned", value: "1M+" },
+      { label: "Group Classes", value: "500+" },
+      { label: "Client Success", value: "97%" },
+    ],
+    schedule: [
+      "Mon - Thu: 04:00 PM - 09:00 PM",
+      "Fri - Sat: 08:00 AM - 12:00 PM",
+    ],
+    achievements: [
+      "Top Group Fitness Instructor 2025",
+      "Endurance Athlete Champion",
+    ],
+    socials: {
+      instagram: "https://instagram.com",
+    },
+  },
+
 ];
 
 export const SPECIALTY_FILTERS = [
@@ -352,9 +345,9 @@ export const TEAM_METRICS = [
   {
     value: "8",
     suffix: " Master Coaches",
-    label: "3 Male & 5 Female Elite Trainers",
+    label: "Certified Elite Trainers & Staff",
   },
   { value: "100%", suffix: "", label: "Internationally Certified" },
   { value: "16k+", suffix: "", label: "1-on-1 Sessions Completed" },
-  { value: "4.96", suffix: " ★", label: "Average Member Rating" },
+  { value: "10+", suffix: " Years", label: "Industry Experience" },
 ];

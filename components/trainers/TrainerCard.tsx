@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, Award, Phone, ArrowRight } from "lucide-react";
+import { Award, Phone, ArrowRight } from "lucide-react";
 import { Trainer } from "@/types/trainer";
 import { InstagramIcon, XIcon } from "@/components/ui/SocialIcons";
 
@@ -12,6 +12,21 @@ interface TrainerCardProps {
 }
 
 export default function TrainerCard({ trainer, onSelect }: TrainerCardProps) {
+  const getBadgeInfo = () => {
+    if (trainer.isOwner) {
+      return { label: "Owner", dotClass: "bg-amber-400" };
+    }
+    if (trainer.isManager) {
+      return { label: "Manager", dotClass: "bg-emerald-400" };
+    }
+    if (trainer.gender === "female") {
+      return { label: "Female Coach", dotClass: "bg-pink-400" };
+    }
+    return { label: "Male Coach", dotClass: "bg-sky-400" };
+  };
+
+  const badge = getBadgeInfo();
+
   return (
     <motion.div
       layout
@@ -45,35 +60,26 @@ export default function TrainerCard({ trainer, onSelect }: TrainerCardProps) {
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
           {/* Gender & Role Badge */}
           <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1 backdrop-blur-md">
-            <span
-              className={`h-2 w-2 rounded-full ${
-                trainer.gender === "female" ? "bg-pink-400" : "bg-sky-400"
-              }`}
-            />
+            <span className={`h-2 w-2 rounded-full ${badge.dotClass}`} />
             <span className="text-[10px] font-bold uppercase tracking-wider text-white">
-              {trainer.gender === "female" ? "Female Coach" : "Male Coach"}
+              {badge.label}
             </span>
           </div>
-
-          {/* Rating Pill */}
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 backdrop-blur-md">
-            <Star size={12} className="fill-amber-400 text-amber-400" />
-            <span className="text-xs font-bold text-white">{trainer.rating.toFixed(1)}</span>
-            <span className="text-[10px] text-ash">({trainer.reviewsCount})</span>
-          </div>
         </div>
 
-        {/* Quick Floating Stat badge on image */}
-        <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between">
-          <div className="rounded-xl border border-white/10 bg-black/70 px-3 py-1.5 backdrop-blur-md">
-            <div className="text-[10px] font-medium uppercase tracking-wider text-ash">Experience</div>
-            <div className="text-xs font-bold text-white">{trainer.experience}</div>
+        {/* Quick Floating Stat badge on image (Only for regular trainers with stats) */}
+        {!trainer.isOwner && !trainer.isManager && trainer.experience && trainer.stats && trainer.stats.length > 0 && (
+          <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between">
+            <div className="rounded-xl border border-white/10 bg-black/70 px-3 py-1.5 backdrop-blur-md">
+              <div className="text-[10px] font-medium uppercase tracking-wider text-ash">Experience</div>
+              <div className="text-xs font-bold text-white">{trainer.experience}</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-black/70 px-3 py-1.5 backdrop-blur-md text-right">
+              <div className="text-[10px] font-medium uppercase tracking-wider text-ash">{trainer.stats[0].label}</div>
+              <div className="text-xs font-bold text-accent">{trainer.stats[0].value}</div>
+            </div>
           </div>
-          <div className="rounded-xl border border-white/10 bg-black/70 px-3 py-1.5 backdrop-blur-md text-right">
-            <div className="text-[10px] font-medium uppercase tracking-wider text-ash">{trainer.stats[0].label}</div>
-            <div className="text-xs font-bold text-accent">{trainer.stats[0].value}</div>
-          </div>
-        </div>
+        )}
       </div>
 
       {/* ── Content Body ──────────────────────────────────────────────── */}
@@ -118,25 +124,16 @@ export default function TrainerCard({ trainer, onSelect }: TrainerCardProps) {
         <div className="flex-1 min-h-4" />
 
         {/* Bottom Actions */}
-        <div className="mt-6 pt-4 border-t border-white/6 flex items-center justify-between gap-2">
-          {/* View Profile Button */}
-          <button
-            onClick={() => onSelect(trainer)}
-            className="group/btn flex items-center gap-1.5 text-xs font-bold text-white hover:text-accent transition-colors py-2"
-          >
-            <span>Full Profile</span>
-            <ArrowRight size={13} className="transition-transform group-hover/btn:translate-x-1 text-accent" />
-          </button>
-
-          {/* Call Now Button */}
-          <a
-            href="tel:01777829308"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent to-secondary px-4 py-2 text-xs font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_var(--theme-accent-glow)]"
-          >
-            <Phone size={13} />
-            <span>Call Now</span>
-          </a>
-        </div>
+      <div className="mt-6 pt-4 border-t border-white/6 flex items-center justify-center">
+        {/* View Profile Button */}
+        <button
+          onClick={() => onSelect(trainer)}
+          className="group/btn flex items-center gap-1.5 text-xs font-bold text-white hover:text-accent transition-colors py-2"
+        >
+          <span>Full Profile</span>
+          <ArrowRight size={13} className="transition-transform group-hover/btn:translate-x-1 text-accent" />
+        </button>
+      </div>
       </div>
     </motion.div>
   );

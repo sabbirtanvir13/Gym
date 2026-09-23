@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
   X,
-  Star,
   CheckCircle2,
   Clock,
   Award,
@@ -14,7 +13,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Trainer } from "@/types/trainer";
-import { InstagramIcon, XIcon } from "@/components/ui/SocialIcons";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcons";
 
 interface TrainerDetailModalProps {
   trainer: Trainer | null;
@@ -26,6 +25,21 @@ export default function TrainerDetailModal({
   onClose,
 }: TrainerDetailModalProps) {
   if (!trainer) return null;
+
+  const getBadgeInfo = () => {
+    if (trainer.isOwner) {
+      return { label: "Owner", dotClass: "bg-amber-400" };
+    }
+    if (trainer.isManager) {
+      return { label: "Manager", dotClass: "bg-emerald-400" };
+    }
+    if (trainer.gender === "female") {
+      return { label: "Female Coach", dotClass: "bg-pink-400" };
+    }
+    return { label: "Male Coach", dotClass: "bg-sky-400" };
+  };
+
+  const badge = getBadgeInfo();
 
   return (
     <AnimatePresence>
@@ -71,40 +85,36 @@ export default function TrainerDetailModal({
 
                 {/* Badges on image */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1 backdrop-blur-md">
-                  <span
-                    className={`h-2 w-2 rounded-full ${
-                      trainer.gender === "female" ? "bg-pink-400" : "bg-sky-400"
-                    }`}
-                  />
+                  <span className={`h-2 w-2 rounded-full ${badge.dotClass}`} />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white">
-                    {trainer.gender === "female" ? "Female Coach" : "Male Coach"}
+                    {badge.label}
                   </span>
                 </div>
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <div className="flex items-center gap-1 rounded-lg bg-black/70 px-2.5 py-1 backdrop-blur-md">
-                    <Star size={13} className="fill-amber-400 text-amber-400" />
-                    <span className="text-xs font-bold text-white">{trainer.rating.toFixed(1)}</span>
-                    <span className="text-[10px] text-ash">({trainer.reviewsCount} reviews)</span>
+                {/* Experience pill on image only if regular trainer with experience */}
+                {!trainer.isOwner && !trainer.isManager && trainer.experience && (
+                  <div className="absolute bottom-3 right-3 flex items-center justify-end">
+                    <div className="rounded-lg bg-black/70 px-2.5 py-1 backdrop-blur-md text-xs font-bold text-accent">
+                      {trainer.experience} Experience
+                    </div>
                   </div>
-                  <div className="rounded-lg bg-black/70 px-2.5 py-1 backdrop-blur-md text-xs font-bold text-accent">
-                    {trainer.experience} Experience
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Stats Row */}
-              <div className="grid grid-cols-3 gap-2">
-                {trainer.stats.map((st) => (
-                  <div
-                    key={st.label}
-                    className="rounded-xl border border-white/6 bg-white/[0.02] p-3 text-center"
-                  >
-                    <div className="font-display text-sm font-black text-white">{st.value}</div>
-                    <div className="text-[10px] text-ash mt-0.5 leading-tight">{st.label}</div>
-                  </div>
-                ))}
-              </div>
+              {trainer.stats && trainer.stats.length > 0 && (
+                <div className="grid grid-cols-3 gap-2">
+                  {trainer.stats.map((st) => (
+                    <div
+                      key={st.label}
+                      className="rounded-xl border border-white/6 bg-white/[0.02] p-3 text-center"
+                    >
+                      <div className="font-display text-sm font-black text-white">{st.value}</div>
+                      <div className="text-[10px] text-ash mt-0.5 leading-tight">{st.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* ── Right Column: Deep Details & Booking Trigger ───────── */}
@@ -190,20 +200,49 @@ export default function TrainerDetailModal({
               </div>
 
               {/* Footer Actions */}
-              <div className="pt-4 border-t border-white/8 flex flex-col sm:flex-row items-center justify-end gap-3">
-                <a
-                  href="tel:01777829308"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_25px_var(--theme-accent-glow)]"
-                >
-                  <Phone size={16} />
-                  <span>Call Now</span>
-                </a>
-                <button
-                  onClick={onClose}
-                  className="w-full sm:w-auto rounded-full border border-white/10 px-6 py-3.5 text-xs font-semibold text-ash hover:text-white hover:border-white/20 transition-colors"
-                >
-                  Close
-                </button>
+              <div className="pt-4 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
+                {/* Social Icons – left side */}
+                <div className="flex items-center gap-2">
+                  {trainer.socials?.facebook && (
+                    <a
+                      href={trainer.socials.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-blue-500/60 hover:bg-blue-500/10 hover:text-blue-400 hover:scale-105"
+                    >
+                      <FacebookIcon size={18} />
+                    </a>
+                  )}
+                  {trainer.socials?.instagram && (
+                    <a
+                      href={trainer.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-pink-500/60 hover:bg-pink-500/10 hover:text-pink-400 hover:scale-105"
+                    >
+                      <InstagramIcon size={18} />
+                    </a>
+                  )}
+                </div>
+
+                {/* Action buttons – right side */}
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="tel:01777829308"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_25px_var(--theme-accent-glow)]"
+                  >
+                    <Phone size={16} />
+                    <span>Call Now</span>
+                  </a>
+                  <button
+                    onClick={onClose}
+                    className="flex-1 sm:flex-none rounded-full border border-white/10 px-6 py-3.5 text-xs font-semibold text-ash hover:text-white hover:border-white/20 transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>

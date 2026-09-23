@@ -12,6 +12,7 @@ import {
   ExternalLink,
   Sparkles,
 } from "lucide-react";
+import { FacebookIcon } from "@/components/ui/SocialIcons";
 
 /* ─── Developer Data ────────────────────────────────────────────────────── */
 interface Developer {
@@ -24,7 +25,7 @@ interface Developer {
   phone?: string;
   photo: string;
   techStack: string[];
-  socials?: { github?: string; linkedin?: string };
+  socials?: { github?: string; linkedin?: string; facebook?: string };
 }
 
 const DEVELOPERS: Developer[] = [
@@ -37,15 +38,18 @@ const DEVELOPERS: Developer[] = [
     email: "sabbirtanvirahmed18@gmail.com",
     photo: "/dev/dev-1.png",
     techStack: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "MongoDB"],
+    socials: { facebook: "https://facebook.com" },
   },
   {
     name: "S M Tamjid Hossain Epick",
     role: "Full Stack Developer",
+    location: "Khulna, Bangladesh",
     bio: "Dedicated Full Stack Developer focused on building scalable and high-performance web applications. Experienced with Next.js, React, TypeScript, Node.js, PostgreSQL, Prisma, and modern UI technologies. Has developed role-based platforms, learning management systems, rental marketplaces, payment integrations, and real-time dashboards.",
     portfolio: "https://epickdev.vercel.app/",
     phone: "+8801339613197",
     photo: "/dev/dev-2.png",
     techStack: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma"],
+    socials: { facebook: "https://facebook.com" },
   },
 ];
 
@@ -84,7 +88,7 @@ export default function DevelopersShowcase() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-white">BUILT WITH PASSION</span>
-            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-extrabold text-accent">2 Engineers</span>
+            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-extrabold text-accent">2 Developer</span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08]">
             MEET THE{" "}
@@ -170,16 +174,29 @@ export default function DevelopersShowcase() {
                     </a>
                   )}
                 </div>
-                <a
-                  href={dev.portfolio}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-[var(--theme-secondary)] px-7 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_var(--theme-accent-glow)] active:scale-[0.98]"
-                >
-                  <Globe size={16} />
-                  View Portfolio
-                  <ExternalLink size={14} />
-                </a>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <a
+                    href={dev.portfolio}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-[var(--theme-secondary)] px-7 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_var(--theme-accent-glow)] active:scale-[0.98]"
+                  >
+                    <Globe size={16} />
+                    View Portfolio
+                    <ExternalLink size={14} />
+                  </a>
+                  {dev.socials?.facebook && (
+                    <a
+                      href={dev.socials.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-blue-500/60 hover:bg-blue-500/10 hover:text-blue-400 hover:scale-105"
+                    >
+                      <FacebookIcon size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

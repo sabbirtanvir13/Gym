@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   title: "AHMED GYM & CAFE 29",
   description:
     "Build your strongest self. Premium gym with expert trainers, modern equipment, and a motivating environment.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

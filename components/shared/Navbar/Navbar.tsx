@@ -19,7 +19,6 @@ const OTHER_LINKS = [
   { label: "Schedule", href: "#schedule" },
   { label: "Health", href: "/protein-calculator" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Developers", href: "/developers" },
 ];
 
 const ALL_LINKS = [...MAIN_LINKS, ...OTHER_LINKS];
@@ -45,7 +44,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (pathname === "/trainers" || pathname === "/protein-calculator" || pathname === "/developers") {
+    if (pathname === "/trainers" || pathname === "/protein-calculator") {
       setActive(pathname);
       const onScrollSimple = () => setScrolled(window.scrollY > 40);
       window.addEventListener("scroll", onScrollSimple, { passive: true });
@@ -74,7 +73,7 @@ export default function Navbar() {
   const handleNav = (href: string) => {
     setOpen(false);
     setDropdownOpen(false);
-    if (href === "/trainers" || href === "/protein-calculator" || href === "/developers") {
+    if (href === "/trainers" || href === "/protein-calculator") {
       router.push(href);
       return;
     }

@@ -31,6 +31,7 @@ export interface Trainer {
     facebook?: string;
   };
   isOwner?: boolean;
+  isManager?: boolean;
 }
 
 export interface BookingFormData {
