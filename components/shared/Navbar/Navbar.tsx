@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Trainers", href: "/trainers" },
   { label: "Membership", href: "#membership" },
   { label: "Schedule", href: "#schedule" },
-  { label: "Protein Calc", href: "#protein-calculator" },
+  { label: "Health", href: "/protein-calculator" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
@@ -26,8 +26,8 @@ export default function Navbar() {
   const [active, setActive] = useState("#home");
 
   useEffect(() => {
-    if (pathname === "/trainers") {
-      setActive("/trainers");
+    if (pathname === "/trainers" || pathname === "/protein-calculator") {
+      setActive(pathname);
       const onScrollSimple = () => setScrolled(window.scrollY > 40);
       window.addEventListener("scroll", onScrollSimple, { passive: true });
       onScrollSimple();
@@ -54,8 +54,8 @@ export default function Navbar() {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    if (href === "/trainers") {
-      router.push("/trainers");
+    if (href === "/trainers" || href === "/protein-calculator") {
+      router.push(href);
       return;
     }
     if (href === "/" || href === "#home") {

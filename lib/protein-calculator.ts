@@ -28,6 +28,20 @@ export interface ProteinResult {
   percentagePosition: number; // For progress bar (0 to 100)
 }
 
+export interface BmiResult {
+  bmi: number;
+  category: "Underweight" | "Normal Weight" | "Overweight" | "Obese";
+  categoryColor: string;
+  idealWeightMin: number;
+  idealWeightMax: number;
+  percentagePosition: number; // For BMI bar scale (0 to 100)
+}
+
+export interface HealthResult {
+  protein: ProteinResult;
+  bmi: BmiResult;
+}
+
 export const FITNESS_GOALS: { id: FitnessGoal; label: string; description: string }[] = [
   { id: "general", label: "General Fitness", description: "Maintain weight & overall health" },
   { id: "muscle", label: "Muscle Gain", description: "Build lean muscle mass" },
@@ -69,8 +83,49 @@ export function validateProteinInputs(input: ProteinInput): ValidationErrors {
   return errors;
 }
 
-export function calculateDailyProtein(input: ProteinInput): ProteinResult {
+export function calculateBmi(heightCm: number, weightKg: number): BmiResult {
+  const heightM = heightCm / 100;
+  const bmiRaw = weightKg / (heightM * heightM);
+  const bmi = Math.round(bmiRaw * 10) / 10;
+
+  let category: "Underweight" | "Normal Weight" | "Overweight" | "Obese" = "Normal Weight";
+  let categoryColor = "text-emerald-400 bg-emerald-500/10 border-emerald-500/30";
+
+  if (bmi < 18.5) {
+    category = "Underweight";
+    categoryColor = "text-sky-400 bg-sky-500/10 border-sky-500/30";
+  } else if (bmi >= 18.5 && bmi < 25) {
+    category = "Normal Weight";
+    categoryColor = "text-emerald-400 bg-emerald-500/10 border-emerald-500/30";
+  } else if (bmi >= 25 && bmi < 30) {
+    category = "Overweight";
+    categoryColor = "text-amber-400 bg-amber-500/10 border-amber-500/30";
+  } else {
+    category = "Obese";
+    categoryColor = "text-rose-400 bg-rose-500/10 border-rose-500/30";
+  }
+
+  const idealWeightMin = Math.round(18.5 * heightM * heightM);
+  const idealWeightMax = Math.round(24.9 * heightM * heightM);
+
+  const percentagePosition = Math.min(
+    100,
+    Math.max(5, Math.round(((bmi - 15) / (40 - 15)) * 100))
+  );
+
+  return {
+    bmi,
+    category,
+    categoryColor,
+    idealWeightMin,
+    idealWeightMax,
+    percentagePosition,
+  };
+}
+
+export function calculateHealthMetrics(input: ProteinInput): HealthResult {
   const weight = Number(input.weight);
+  const height = Number(input.height);
 
   // Base protein ranges per kg body weight
   let minMultiplier = 1.2;
@@ -92,8 +147,7 @@ export function calculateDailyProtein(input: ProteinInput): ProteinResult {
   const minRange = Math.round(weight * minMultiplier);
   const maxRange = Math.round(weight * maxMultiplier);
 
-  // Position within the range based on activity level
-  let activityFactor = 0.55; // Default moderate
+  let activityFactor = 0.55;
   switch (input.activityLevel) {
     case "low":
       activityFactor = 0.25;
@@ -110,17 +164,15 @@ export function calculateDailyProtein(input: ProteinInput): ProteinResult {
   }
 
   const recommendedTarget = Math.round(minRange + (maxRange - minRange) * activityFactor);
-
   const suggestedMeals = 4;
   const proteinPerMeal = Math.round(recommendedTarget / suggestedMeals);
 
-  // Progress bar percentage calculation relative to max range threshold (scaled nicely up to ~100%)
   const percentagePosition = Math.min(
     100,
     Math.max(15, Math.round(((recommendedTarget - minRange) / (maxRange - minRange)) * 100))
   );
 
-  return {
+  const proteinResult: ProteinResult = {
     minRange,
     maxRange,
     recommendedTarget,
@@ -128,4 +180,16 @@ export function calculateDailyProtein(input: ProteinInput): ProteinResult {
     suggestedMeals,
     percentagePosition,
   };
+
+  const bmiResult = calculateBmi(height, weight);
+
+  return {
+    protein: proteinResult,
+    bmi: bmiResult,
+  };
+}
+
+// Retain backward compatibility helper
+export function calculateDailyProtein(input: ProteinInput): ProteinResult {
+  return calculateHealthMetrics(input).protein;
 }

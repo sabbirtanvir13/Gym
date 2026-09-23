@@ -8,7 +8,7 @@ import Programs from "@/components/Programs";
 import Trainers from "@/components/Trainers";
 import Membership from "@/components/Membership";
 import Schedule from "@/components/Schedule";
-import ProteinCalculator from "@/components/ProteinCalculator";
+import ProteinCalculatorPromo from "@/components/ProteinCalculatorPromo";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
@@ -31,14 +31,14 @@ export default function Home() {
         <Trainers />
         <Membership />
         <Schedule />
-        <ProteinCalculator />
+        <ProteinCalculatorPromo />
         <WhyChooseUs />
         <Gallery />
         <Testimonials />
         <Transformation />
         <Contact />
       </main>
-      // Footer rendered in layout
+
       <FloatingContactButtons />
     </>
   );
