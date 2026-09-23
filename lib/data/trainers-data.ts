@@ -92,9 +92,9 @@ export const TRAINERS_DATA: Trainer[] = [
 
   // ── REGULAR FEMALE TRAINERS ──────────────────────────────────────────
   {
-    id: "elena-voss",
-    name: "Elena Voss",
-    gender: "female",
+    id: "Abir Parves",
+    name: "Abir Parves",
+    gender: "male",
     role: "Senior Personal Trainer & Nutritionist",
     tagline:
       "Transform your body composition through science and sustainable habits.",
@@ -209,7 +209,7 @@ export const TRAINERS_DATA: Trainer[] = [
     id: "Tanveer Ahmed",
     name: "Tanveer Ahmed",
     gender: "male",
-    role: "Founder & Master Rehabilitation Coach",
+    role: "Manager",
     tagline:
       "Sculpt symmetrical muscle while protecting joints and correcting posture.",
     specialty: "Hypertrophy & Posture Rehab",
