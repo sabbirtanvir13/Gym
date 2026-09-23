@@ -21,7 +21,7 @@ const slideVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
       staggerChildren: 0.08,
     },
   },
@@ -32,14 +32,14 @@ const slideVariants = {
     filter: "blur(6px)",
     transition: {
       duration: 0.4,
-      ease: [0.4, 0, 1, 1],
+      ease: [0.4, 0, 1, 1] as [number, number, number, number],
     },
   }),
 };
 
 const itemVariants = {
   enter: { opacity: 0, y: 15 },
-  center: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  center: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0, 0, 0.2, 1] as [number, number, number, number] } },
 };
 
 export default function Testimonials() {

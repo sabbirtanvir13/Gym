@@ -11,7 +11,7 @@ import TrainerDetailModal from "./TrainerDetailModal";
 import TrainerBookingModal from "./TrainerBookingModal";
 
 export default function TrainersGrid() {
-  const [genderFilter, setGenderFilter] = useState<"all" | "male" | "female">("all");
+  const [genderFilter, setGenderFilter] = useState<"all" | "male" | "female" | "owner">("all");
   const [selectedSpecialty, setSelectedSpecialty] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -23,12 +23,15 @@ export default function TrainersGrid() {
   const totalCount = TRAINERS_DATA.length;
   const maleCount = TRAINERS_DATA.filter((t) => t.gender === "male").length;
   const femaleCount = TRAINERS_DATA.filter((t) => t.gender === "female").length;
+  const ownerCount = TRAINERS_DATA.filter((t) => t.isOwner).length;
 
   // Filtered trainers
   const filteredTrainers = useMemo(() => {
     return TRAINERS_DATA.filter((t) => {
       // Gender filter
-      if (genderFilter !== "all" && t.gender !== genderFilter) {
+      if (genderFilter === "owner") {
+        if (!t.isOwner) return false;
+      } else if (genderFilter !== "all" && t.gender !== genderFilter) {
         return false;
       }
       // Specialty filter
@@ -78,6 +81,7 @@ export default function TrainersGrid() {
           filteredCount={filteredTrainers.length}
           maleCount={maleCount}
           femaleCount={femaleCount}
+          ownerCount={ownerCount}
         />
 
         {/* Trainers Grid */}
@@ -93,7 +97,6 @@ export default function TrainersGrid() {
                     key={trainer.id}
                     trainer={trainer}
                     onSelect={handleOpenDetail}
-                    onBook={handleOpenBooking}
                   />
                 ))}
               </AnimatePresence>
@@ -127,7 +130,6 @@ export default function TrainersGrid() {
       <TrainerDetailModal
         trainer={activeTrainerDetail}
         onClose={() => setActiveTrainerDetail(null)}
-        onBook={handleOpenBooking}
       />
 
       {/* Trainer Booking Modal */}

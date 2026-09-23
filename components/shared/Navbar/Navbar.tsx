@@ -1,32 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import AccentSwitcher from "@/components/AccentSwitcher";
 
-const NAV_LINKS = [
+const MAIN_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Programs", href: "#programs" },
+  { label: "Contact", href: "#contact" },
+];
+
+const OTHER_LINKS = [
   { label: "Trainers", href: "/trainers" },
   { label: "Membership", href: "#membership" },
   { label: "Schedule", href: "#schedule" },
   { label: "Health", href: "/protein-calculator" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Developers", href: "/developers" },
 ];
+
+const ALL_LINKS = [...MAIN_LINKS, ...OTHER_LINKS];
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [active, setActive] = useState("#home");
+  const dropdownRef = useRef<HTMLLIElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
-    if (pathname === "/trainers" || pathname === "/protein-calculator") {
+    if (pathname === "/trainers" || pathname === "/protein-calculator" || pathname === "/developers") {
       setActive(pathname);
       const onScrollSimple = () => setScrolled(window.scrollY > 40);
       window.addEventListener("scroll", onScrollSimple, { passive: true });
@@ -37,7 +56,7 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const hashSections = NAV_LINKS.filter((l) => l.href.startsWith("#")).map((l) => l.href);
+      const hashSections = ALL_LINKS.filter((l) => l.href.startsWith("#")).map((l) => l.href);
       const current = hashSections.find((href) => {
         const el = document.querySelector(href);
         if (!el) return false;
@@ -54,7 +73,8 @@ export default function Navbar() {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    if (href === "/trainers" || href === "/protein-calculator") {
+    setDropdownOpen(false);
+    if (href === "/trainers" || href === "/protein-calculator" || href === "/developers") {
       router.push(href);
       return;
     }
@@ -78,6 +98,8 @@ export default function Navbar() {
     }
   };
 
+  const isOtherActive = OTHER_LINKS.some((link) => link.href === active);
+
   return (
     <>
       <motion.header
@@ -91,19 +113,22 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          {/* Logo */}
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               handleNav("#home");
             }}
-            className="font-display text-xl font-extrabold tracking-tight"
+            className="font-display text-xl font-extrabold tracking-tight shrink-0"
           >
             <span className="text-accent">AHMED GYM &amp; CAFE 29</span>
           </a>
 
+          {/* Desktop Navigation Links */}
           <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => (
+            {/* 4 Main Links: Home, About, Programs, Contact */}
+            {MAIN_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -128,9 +153,76 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+
+            {/* "Others" Dropdown Menu */}
+            <li className="relative" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onMouseEnter={() => setDropdownOpen(true)}
+                className={`relative flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                  isOtherActive || dropdownOpen
+                    ? "text-white"
+                    : "text-ash hover:text-white"
+                }`}
+              >
+                <span>Others</span>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-300 ${
+                    dropdownOpen ? "rotate-180 text-accent" : "text-ash"
+                  }`}
+                />
+                {isOtherActive && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-x-3 -bottom-0.5 h-[2px] bg-accent"
+                    transition={{ type: "spring", stiffness: 350, damping: 30, mass: 1 }}
+                  />
+                )}
+              </button>
+
+              {/* Dropdown Menu Box */}
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                    className="absolute right-0 top-full mt-2 w-48 rounded-2xl border border-white/10 bg-charcoal/95 p-2 backdrop-blur-xl shadow-2xl shadow-black/80 z-50"
+                  >
+                    <div className="flex flex-col gap-1">
+                      {OTHER_LINKS.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNav(link.href);
+                          }}
+                          className={`rounded-xl px-3.5 py-2.5 text-xs font-semibold transition-all duration-200 flex items-center justify-between ${
+                            active === link.href
+                              ? "bg-accent/15 text-accent font-bold"
+                              : "text-ash hover:bg-white/5 hover:text-white"
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          {active === link.href && (
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
           </ul>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          {/* Right Action Controls: AccentSwitcher + JOIN NOW Button */}
+          <div className="hidden items-center gap-4 lg:flex shrink-0">
             <AccentSwitcher />
             <a
               href="#membership"
@@ -138,14 +230,14 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNav("#membership");
               }}
-              className="group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
+              className="group relative inline-flex shrink-0 items-center justify-center whitespace-nowrap overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
             >
-              <span className="relative z-10">JOIN NOW</span>
+              <span className="relative z-10 whitespace-nowrap">JOIN NOW</span>
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%] skew-x-[-20deg]" />
             </a>
           </div>
 
-          {/* Mobile: show AccentSwitcher + hamburger */}
+          {/* Mobile: AccentSwitcher + Hamburger */}
           <div className="flex items-center gap-3 lg:hidden">
             <AccentSwitcher />
             <button
@@ -159,6 +251,7 @@ export default function Navbar() {
         </nav>
       </motion.header>
 
+      {/* Mobile Drawer Navigation */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -176,37 +269,72 @@ export default function Navbar() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 50, opacity: 0 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-1 border-l border-white/10 bg-charcoal px-6 py-24"
+              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-1 overflow-y-auto border-l border-white/10 bg-charcoal px-6 py-24"
             >
-              {NAV_LINKS.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i + 0.1 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNav(link.href);
-                  }}
-                  className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    active === link.href
-                      ? "bg-white/5 text-accent"
-                      : "text-ash hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
+              {/* Main Links */}
+              <div className="mb-2">
+                <span className="px-4 text-[10px] font-extrabold uppercase tracking-widest text-ash-2">
+                  Main Menu
+                </span>
+                {MAIN_LINKS.map((link, i) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 * i + 0.05 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav(link.href);
+                    }}
+                    className={`block rounded-lg px-4 py-2.5 text-base font-medium transition-colors ${
+                      active === link.href
+                        ? "bg-white/5 text-accent font-bold"
+                        : "text-ash hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Other Links */}
+              <div className="border-t border-white/10 pt-3">
+                <span className="px-4 text-[10px] font-extrabold uppercase tracking-widest text-ash-2">
+                  Explore More
+                </span>
+                {OTHER_LINKS.map((link, i) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 * i + 0.2 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav(link.href);
+                    }}
+                    className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                      active === link.href
+                        ? "bg-white/5 text-accent font-bold"
+                        : "text-ash hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Mobile JOIN NOW button */}
               <a
                 href="#membership"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNav("#membership");
                 }}
-                className="group relative mt-4 overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3 text-center text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
+                className="group relative mt-6 inline-flex shrink-0 items-center justify-center whitespace-nowrap overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3 text-center text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
               >
-                <span className="relative z-10">JOIN NOW</span>
+                <span className="relative z-10 whitespace-nowrap">JOIN NOW</span>
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%] skew-x-[-20deg]" />
               </a>
             </motion.nav>

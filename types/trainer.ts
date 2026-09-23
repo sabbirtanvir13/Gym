@@ -29,6 +29,7 @@ export interface Trainer {
     linkedin?: string;
     youtube?: string;
   };
+  isOwner?: boolean;
 }
 
 export interface BookingFormData {

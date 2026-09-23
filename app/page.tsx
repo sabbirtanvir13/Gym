@@ -12,15 +12,12 @@ import ProteinCalculatorPromo from "@/components/ProteinCalculatorPromo";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
-import Transformation from "@/components/Transformation";
 import Contact from "@/components/Contact";
 // Footer moved to shared layout
-import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <>
-      <PageLoader />
       <ScrollProgress />
       <CustomCursor />
 
@@ -31,11 +28,11 @@ export default function Home() {
         <Trainers />
         <Membership />
         <Schedule />
-        <ProteinCalculatorPromo />
+
         <WhyChooseUs />
         <Gallery />
         <Testimonials />
-        <Transformation />
+        <ProteinCalculatorPromo />
         <Contact />
       </main>
 

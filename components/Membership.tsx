@@ -50,7 +50,7 @@ export default function Membership() {
 
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="font-display text-5xl font-extrabold">
-                  ${plan.price}
+                  ৳{plan.price.toLocaleString()}
                 </span>
                 <span className="text-sm text-ash">/month</span>
               </div>

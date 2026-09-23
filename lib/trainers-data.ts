@@ -147,9 +147,9 @@ export const TRAINERS_DATA: Trainer[] = [
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
-    id: "alex-rahman",
-    name: "Alex Rahman",
-    gender: "male",
+    id: "ayesha-rahman",
+    name: "Ayesha Rahman",
+    gender: "female",
     role: "Head Strength Coach & Power Specialist",
     tagline:
       "Master progressive barbell overload and unlock your peak physical power.",
@@ -163,15 +163,14 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "9+ Years",
     rating: 5.0,
     reviewsCount: 220,
-    image:
-      "https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/alex_female.jpg",
     certifications: [
       "CSCS (Certified Strength & Conditioning Specialist)",
       "B.Sc. in Exercise & Sports Science",
       "USAPL National Level Strength Coach",
       "Westside Barbell Special Strengths Certified",
     ],
-    bio: "Alex leads our performance department with unmatched technical mastery. Having trained competitive powerlifters and everyday warriors alike, he excels at fixing technique flaws and packing dense, explosive muscle on any frame.",
+    bio: "Ayesha leads our performance department with unmatched technical mastery. Having trained competitive powerlifters and everyday warriors alike, she excels at fixing technique flaws and packing dense, explosive muscle on any frame.",
     philosophy:
       "Progress is purely math, biomechanics, and relentless effort. Respect the barbell, and it will reward you.",
     stats: [
@@ -196,9 +195,9 @@ export const TRAINERS_DATA: Trainer[] = [
     },
   },
   {
-    id: "marcus-lee",
-    name: "Marcus Lee",
-    gender: "male",
+    id: "mariam-islam",
+    name: "Mariam Islam",
+    gender: "female",
     role: "CrossFit & Functional Fitness Director",
     tagline:
       "Forging complete physical preparedness for any real-world challenge.",
@@ -212,15 +211,14 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "7+ Years",
     rating: 4.9,
     reviewsCount: 165,
-    image:
-      "https://images.pexels.com/photos/21633393/pexels-photo-21633393.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/marcus_female.jpg",
     certifications: [
       "Certified CrossFit Level 3 Trainer (CCFT)",
       "USAW (USA Weightlifting) Advanced Sports Performance Coach",
       "Invictus Gymnastics Certified",
       "First Aid & Advanced Athletic Taping",
     ],
-    bio: "Marcus fuses Olympic barbell cycling, high-skill gymnastics, and engine-building conditioning. His workouts are designed to transform you into an agile, resilient, and unstoppable athletic powerhouse.",
+    bio: "Mariam fuses Olympic barbell cycling, high-skill gymnastics, and engine-building conditioning. Her workouts are designed to transform you into an agile, resilient, and unstoppable athletic powerhouse.",
     philosophy:
       "Prepare for the unknown and the unknowable. When your body is versatile, your mind is invincible.",
     stats: [
@@ -290,6 +288,7 @@ export const TRAINERS_DATA: Trainer[] = [
       instagram: "https://instagram.com",
       linkedin: "https://linkedin.com",
     },
+    isOwner: true,
   },
 ];
 

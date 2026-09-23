@@ -6,12 +6,12 @@ import {
   X,
   Star,
   CheckCircle2,
-  Calendar,
   Clock,
   Award,
   Flame,
   ShieldCheck,
   Quote,
+  Phone,
 } from "lucide-react";
 import { Trainer } from "@/types/trainer";
 import { InstagramIcon, XIcon } from "@/components/SocialIcons";
@@ -19,13 +19,11 @@ import { InstagramIcon, XIcon } from "@/components/SocialIcons";
 interface TrainerDetailModalProps {
   trainer: Trainer | null;
   onClose: () => void;
-  onBook: (trainer: Trainer) => void;
 }
 
 export default function TrainerDetailModal({
   trainer,
   onClose,
-  onBook,
 }: TrainerDetailModalProps) {
   if (!trainer) return null;
 
@@ -191,21 +189,18 @@ export default function TrainerDetailModal({
                 </ul>
               </div>
 
-              {/* Booking CTA Footer */}
-              <div className="pt-4 border-t border-white/8 flex flex-col sm:flex-row items-center gap-3">
-                <button
-                  onClick={() => {
-                    onClose();
-                    onBook(trainer);
-                  }}
-                  className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_25px_var(--theme-accent-glow)]"
+              {/* Footer Actions */}
+              <div className="pt-4 border-t border-white/8 flex flex-col sm:flex-row items-center justify-end gap-3">
+                <a
+                  href="tel:01777829308"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3.5 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_25px_var(--theme-accent-glow)]"
                 >
-                  <Calendar size={16} />
-                  <span>Schedule Session with {trainer.name.split(" ")[0]}</span>
-                </button>
+                  <Phone size={16} />
+                  <span>Call Now</span>
+                </a>
                 <button
                   onClick={onClose}
-                  className="w-full sm:w-auto rounded-full border border-white/10 px-5 py-3.5 text-xs font-semibold text-ash hover:text-white hover:border-white/20 transition-colors"
+                  className="w-full sm:w-auto rounded-full border border-white/10 px-6 py-3.5 text-xs font-semibold text-ash hover:text-white hover:border-white/20 transition-colors"
                 >
                   Close
                 </button>

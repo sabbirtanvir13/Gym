@@ -137,7 +137,7 @@ export const TRAINERS = [
 export const PLANS = [
   {
     name: "BASIC",
-    price: 29,
+    price: 1500,
     features: [
       "Access to gym floor",
       "Locker room access",
@@ -147,7 +147,7 @@ export const PLANS = [
   },
   {
     name: "PREMIUM",
-    price: 59,
+    price: 3000,
     features: [
       "Everything in Basic",
       "Unlimited group classes",
@@ -159,7 +159,7 @@ export const PLANS = [
   },
   {
     name: "ELITE",
-    price: 99,
+    price: 5000,
     features: [
       "Everything in Premium",
       "4 personal training sessions / month",

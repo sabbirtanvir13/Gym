@@ -2,24 +2,21 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, Award, Calendar, ArrowRight } from "lucide-react";
+import { Star, Award, Phone, ArrowRight } from "lucide-react";
 import { Trainer } from "@/types/trainer";
 import { InstagramIcon, XIcon } from "@/components/SocialIcons";
 
 interface TrainerCardProps {
   trainer: Trainer;
   onSelect: (trainer: Trainer) => void;
-  onBook: (trainer: Trainer) => void;
 }
 
-export default function TrainerCard({ trainer, onSelect, onBook }: TrainerCardProps) {
+export default function TrainerCard({ trainer, onSelect }: TrainerCardProps) {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 25 }}
-      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.3 }}
       className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/8 bg-charcoal/40 backdrop-blur-xl transition-all duration-500 hover:border-accent/50 hover:bg-charcoal/70 hover:shadow-[0_20px_40px_-15px_var(--theme-accent-glow)]"
     >
       {/* Glow border gradient effect */}
@@ -131,14 +128,14 @@ export default function TrainerCard({ trainer, onSelect, onBook }: TrainerCardPr
             <ArrowRight size={13} className="transition-transform group-hover/btn:translate-x-1 text-accent" />
           </button>
 
-          {/* Book Session Button */}
-          <button
-            onClick={() => onBook(trainer)}
+          {/* Call Now Button */}
+          <a
+            href="tel:01777829308"
             className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent to-secondary px-4 py-2 text-xs font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_var(--theme-accent-glow)]"
           >
-            <Calendar size={13} />
-            <span>Book Session</span>
-          </button>
+            <Phone size={13} />
+            <span>Call Now</span>
+          </a>
         </div>
       </div>
     </motion.div>
