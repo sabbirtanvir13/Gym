@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, Users } from "lucide-react";
+import Link from "next/link";
+import { Check, Users, ArrowRight } from "lucide-react";
 import { TRAINERS } from "@/lib/data";
 import { InstagramIcon, FacebookIcon, XIcon } from "./SocialIcons";
 
@@ -166,19 +167,16 @@ export default function Trainers() {
               transition={{ delay: 0.65, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10"
             >
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                href="/trainers"
                 className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-8 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_30px_var(--theme-accent-glow)]"
               >
                 <Users size={16} className="relative z-10" />
                 <span className="relative z-10">VIEW OUR TRAINERS</span>
+                <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                 {/* Shimmer sweep */}
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[200%] skew-x-[-20deg]" />
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

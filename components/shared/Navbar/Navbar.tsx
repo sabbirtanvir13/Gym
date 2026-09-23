@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import AccentSwitcher from "@/components/AccentSwitcher";
@@ -9,7 +10,7 @@ const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Programs", href: "#programs" },
-  { label: "Trainers", href: "#trainers" },
+  { label: "Trainers", href: "/trainers" },
   { label: "Membership", href: "#membership" },
   { label: "Schedule", href: "#schedule" },
   { label: "Gallery", href: "#gallery" },
@@ -17,16 +18,26 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#home");
 
   useEffect(() => {
+    if (pathname === "/trainers") {
+      setActive("/trainers");
+      const onScrollSimple = () => setScrolled(window.scrollY > 40);
+      window.addEventListener("scroll", onScrollSimple, { passive: true });
+      onScrollSimple();
+      return () => window.removeEventListener("scroll", onScrollSimple);
+    }
+
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = NAV_LINKS.map((l) => l.href);
-      const current = sections.find((href) => {
+      const hashSections = NAV_LINKS.filter((l) => l.href.startsWith("#")).map((l) => l.href);
+      const current = hashSections.find((href) => {
         const el = document.querySelector(href);
         if (!el) return false;
         const rect = el.getBoundingClientRect();
@@ -38,12 +49,32 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   const handleNav = (href: string) => {
     setOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (href === "/trainers") {
+      router.push("/trainers");
+      return;
+    }
+    if (href === "/" || href === "#home") {
+      if (pathname !== "/") {
+        router.push("/");
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+    if (href.startsWith("#")) {
+      if (pathname !== "/") {
+        router.push("/" + href);
+      } else {
+        const el = document.querySelector(href);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(href);
+    }
   };
 
   return (

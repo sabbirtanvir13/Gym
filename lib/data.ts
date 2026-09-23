@@ -118,8 +118,46 @@ export const WHY_CHOOSE_US = [
 ];
 
 export const TESTIMONIALS = [
-  { name: "James Carter", role: "Member — 2 years", rating: 5, text: "Joining this gym completely changed my training routine. The trainers are extremely supportive and professional.", image: IMAGES.testimonials[1] },
-  { name: "Priya Sharma", role: "Member — 1 year", rating: 5, text: "The atmosphere is unmatched. I lost 15kg in 6 months with their personalized program. Highly recommended.", image: IMAGES.testimonials[0] },
-  { name: "David Okoro", role: "Member — 3 years", rating: 5, text: "Best gym I've ever been to. Premium equipment, clean facilities, and trainers who genuinely care about your progress.", image: IMAGES.testimonials[2] },
-  { name: "Lina Hoffmann", role: "Member — 8 months", rating: 5, text: "From day one I felt welcomed. The group classes are intense and fun. This place pushes you to be better.", image: IMAGES.testimonials[3] },
+  {
+    name: "David Okoro",
+    role: "Member — 3 years",
+    rating: 5,
+    text: "Best gym I've ever been to. Premium equipment, clean facilities, and trainers who genuinely care about your progress. Every session feels purposeful.",
+    image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    name: "Priya Sharma",
+    role: "Member — 1 year",
+    rating: 5,
+    text: "The atmosphere is unmatched. I lost 15 kg in six months with their personalized program. The nutrition guidance from Cafe 29 was the game‑changer.",
+    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    name: "James Carter",
+    role: "Member — 2 years",
+    rating: 5,
+    text: "Joining this gym completely changed my training routine. The coaches push you hard but always keep your safety and form in check. Couldn't ask for more.",
+    image: "https://images.pexels.com/photos/2105493/pexels-photo-2105493.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    name: "Lina Hoffmann",
+    role: "Member — 8 months",
+    rating: 5,
+    text: "From day one I felt welcomed. The group classes are intense and fun — this place pushes you to be better every single week.",
+    image: "https://images.pexels.com/photos/4720784/pexels-photo-4720784.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    name: "Marcus Chen",
+    role: "Member — 4 years",
+    rating: 5,
+    text: "I've trained at gyms across three countries and nothing comes close. The scientific approach to programming here is on another level entirely.",
+    image: "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    name: "Aisha Rahman",
+    role: "Member — 1.5 years",
+    rating: 5,
+    text: "As a woman, I was nervous about joining a strength gym. The female coaches made me feel completely at ease and now I deadlift more than most guys!",
+    image: "https://images.pexels.com/photos/2256365/pexels-photo-2256365.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
 ];

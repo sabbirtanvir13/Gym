@@ -1,6 +1,6 @@
 import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingContactButtons from "@/components/WhatsAppButton";
 // Navbar moved to shared layout
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -37,7 +37,7 @@ export default function Home() {
         <Contact />
       </main>
       // Footer rendered in layout
-      <WhatsAppButton />
+      <FloatingContactButtons />
     </>
   );
 }

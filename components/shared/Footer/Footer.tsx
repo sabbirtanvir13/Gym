@@ -12,12 +12,12 @@ import {
 import { InstagramIcon, FacebookIcon, XIcon } from "@/components/SocialIcons";
 
 const QUICK_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Trainers", href: "#trainers" },
-  { label: "Membership", href: "#membership" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "About", href: "/#about" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Trainers", href: "/trainers" },
+  { label: "Membership", href: "/#membership" },
+  { label: "Schedule", href: "/#schedule" },
+  { label: "Gallery", href: "/#gallery" },
 ];
 
 const PROGRAM_LINKS = [
@@ -116,7 +116,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-ash">
                   <Phone size={16} className="shrink-0 text-accent" />
-                  <span>+1 (555) 123-4567</span>
+                  <a href="tel:01711677902" className="hover:text-accent transition-colors">01711-677902</a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-ash">
                   <Mail size={16} className="shrink-0 text-accent" />
@@ -139,6 +139,10 @@ export default function Footer() {
             <div className="flex gap-6">
               <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
               <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
+              <a href="/developers" className="inline-flex items-center gap-1.5 transition-colors hover:text-accent">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Developers
+              </a>
             </div>
           </div>
         </div>
@@ -151,7 +155,7 @@ export default function Footer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-black shadow-lg shadow-accent/20 transition-transform hover:scale-110"
+            className="fixed bottom-6 left-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-black shadow-lg shadow-accent/20 transition-transform hover:scale-110"
             aria-label="Back to top"
           >
             <ArrowUp size={20} />
