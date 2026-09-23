@@ -24,13 +24,18 @@ export const IMAGES = {
     "/video/2GB.mp4",
     "/video/3GB.mp4",
     "https://images.pexels.com/photos/17956264/pexels-photo-17956264.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "/mmentor/masin/f1.png",
-    "/mmentor/masin/m1.png",
+    "/mmentor//masin/f1.jpg",
+    "/mmentor//masin/ma1.jpg",
     "/video/4GB.mp4",
     "/video/5GB.mp4",
     "/video/6GB.mp4",
   ],
-  testimonials: ["/mmentor/rw1.jpg", "/mmentor/rw2.jpg", "/mmentor/rw3.jpg"],
+  testimonials: [
+    "/mmentor/rw1.jpg",
+    "/mmentor/rw2.jpg",
+    "/mmentor/rw3.jpg",
+    "/mmentor/rw4.jpg",
+  ],
 };
 
 export const NAV_LINKS = [

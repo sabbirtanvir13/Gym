@@ -7,7 +7,8 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Sobhana Mostary",
     gender: "female",
     role: "Co-Owner & BD National Cricketer",
-    tagline: "Bangladesh National Women's Cricket Team Athlete & Fitness Specialist.",
+    tagline:
+      "Bangladesh National Women's Cricket Team Athlete & Fitness Specialist.",
     specialty: "Athletic Conditioning",
     specialties: [
       "Cricket Conditioning",
@@ -18,7 +19,7 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "6+ Years",
     rating: 5.0,
     reviewsCount: 210,
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Bangladesh_women%27s_national_cricketer_Sobhana_Mostary.jpeg",
+    image: "/mmentor/orn1.jpg",
     certifications: [
       "BD National Team Professional Athlete",
       "ICC High Performance Fitness Certification",
@@ -26,7 +27,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "CPR & Athletic First Aid",
     ],
     bio: "Sobhana Mostary is an active middle-order batter for the Bangladesh Women's National Cricket Team and Co-Owner of Ahmed Gym & Cafe 29. She brings international sports conditioning and top-tier athletic discipline to our fitness community.",
-    philosophy: "Representing your country starts with mastering your body. Discipline and consistency turn dreams into reality.",
+    philosophy:
+      "Representing your country starts with mastering your body. Discipline and consistency turn dreams into reality.",
     stats: [
       { label: "International Matches", value: "50+" },
       { label: "Athletes Trained", value: "180+" },
@@ -53,7 +55,8 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Jahanara Alam",
     gender: "female",
     role: "Co-Owner & BD National Cricketer",
-    tagline: "Legendary Bangladesh National Pace Bowler & Master Fitness Coach.",
+    tagline:
+      "Legendary Bangladesh National Pace Bowler & Master Fitness Coach.",
     specialty: "Strength & Endurance",
     specialties: [
       "Pace Conditioning",
@@ -64,14 +67,15 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "10+ Years",
     rating: 5.0,
     reviewsCount: 310,
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Jahanara_Alam_%287%29.jpg",
+    image: "/mmentor/orn2.jpg",
     certifications: [
       "Bangladesh National Team Veteran Athlete",
       "Level 2 Certified Strength & Conditioning Coach",
       "FMS Movement Specialist",
     ],
     bio: "Jahanara Alam is one of Bangladesh's most celebrated international cricketers and Co-Owner of Ahmed Gym. With over a decade of elite international competition, she inspires members to push past limits.",
-    philosophy: "Hard work beats talent every single day. Train like a champion, live like a champion.",
+    philosophy:
+      "Hard work beats talent every single day. Train like a champion, live like a champion.",
     stats: [
       { label: "Intl Wickets", value: "100+" },
       { label: "Years in Pro Sports", value: "12+" },
@@ -93,12 +97,15 @@ export const TRAINERS_DATA: Trainer[] = [
     },
     isOwner: true,
   },
+
+  // ── REGULAR FEMALE TRAINERS ──────────────────────────────────────────
   {
     id: "elena-voss",
     name: "Elena Voss",
     gender: "female",
     role: "Senior Personal Trainer & Nutritionist",
-    tagline: "Transform your body composition through science and sustainable habits.",
+    tagline:
+      "Transform your body composition through science and sustainable habits.",
     specialty: "Weight Loss & Toning",
     specialties: [
       "Weight Loss",
@@ -117,7 +124,8 @@ export const TRAINERS_DATA: Trainer[] = [
       "CPR & First Aid Certified",
     ],
     bio: "Elena specializes in sustainable fat loss, body recomposition, and empowering individuals with lifelong nutritional habits.",
-    philosophy: "Discipline creates freedom. We don't do crash diets; we build strong, resilient bodies with proven scientific methods.",
+    philosophy:
+      "Discipline creates freedom. We don't do crash diets; we build strong, resilient bodies with proven scientific methods.",
     stats: [
       { label: "Clients Transformed", value: "150+" },
       { label: "Success Rate", value: "98.5%" },
@@ -136,6 +144,91 @@ export const TRAINERS_DATA: Trainer[] = [
       instagram: "https://instagram.com",
     },
   },
+  {
+    id: "farhana-islam",
+    name: "Farhana Islam",
+    gender: "female",
+    role: "Lead Pilates & Flexibility Coach",
+    tagline: "Enhance your core strength, posture, and deep tissue mobility.",
+    specialty: "Mobility & Recovery",
+    specialties: [
+      "Pilates",
+      "Yoga & Stretching",
+      "Injury Rehabilitation",
+      "Mindfulness",
+    ],
+    experience: "5+ Years",
+    rating: 4.8,
+    reviewsCount: 142,
+    image: "/mmentor/t4.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
+    certifications: [
+      "Certified Pilates Instructor",
+      "Yoga Alliance RYT 200",
+      "Corrective Exercise Specialist (CES)",
+    ],
+    bio: "Farhana brings a calming yet challenging approach to fitness, focusing on core stability, posture correction, and full-body flexibility.",
+    philosophy:
+      "True strength starts from within. Build your core, align your posture, and the rest will naturally follow.",
+    stats: [
+      { label: "Clients Guided", value: "200+" },
+      { label: "Mobility Increase", value: "45%" },
+      { label: "Sessions Led", value: "1,500+" },
+    ],
+    schedule: [
+      "Sun - Wed: 08:00 AM - 01:00 PM",
+      "Thu - Sat: 04:00 PM - 08:00 PM",
+    ],
+    achievements: [
+      "Best Yoga & Pilates Mentor 2023",
+      "Specialist in Women's Health & Wellness",
+    ],
+    socials: {
+      instagram: "https://instagram.com",
+    },
+  },
+  {
+    id: "sarah-jenkins",
+    name: "Sarah Jenkins",
+    gender: "female",
+    role: "HIIT & Cardiovascular Expert",
+    tagline:
+      "Ignite your metabolism and push your cardiovascular limits to the max.",
+    specialty: "HIIT & Conditioning",
+    specialties: [
+      "HIIT (High-Intensity Interval Training)",
+      "Cardio Conditioning",
+      "Fat Burning",
+      "Endurance Building",
+    ],
+    experience: "7+ Years",
+    rating: 4.9,
+    reviewsCount: 185,
+    image: "/mmentor/t5.png", // আপনার পছন্দমত ছবি বসিয়ে নিবেন
+    certifications: [
+      "ISSA Certified Fitness Trainer",
+      "Advanced HIIT Specialist",
+      "Group Fitness Certified (AFAA)",
+    ],
+    bio: "Sarah is an absolute powerhouse when it comes to high-intensity interval training. She ensures every session maximizes calorie burn and builds relentless stamina.",
+    philosophy:
+      "Don't stop when you're tired. Stop when you're done. Push your limits and discover what you're truly capable of.",
+    stats: [
+      { label: "Calories Burned", value: "1M+" },
+      { label: "Group Classes", value: "500+" },
+      { label: "Client Success", value: "97%" },
+    ],
+    schedule: [
+      "Mon - Thu: 04:00 PM - 09:00 PM",
+      "Fri - Sat: 08:00 AM - 12:00 PM",
+    ],
+    achievements: [
+      "Top Group Fitness Instructor 2025",
+      "Endurance Athlete Champion",
+    ],
+    socials: {
+      instagram: "https://instagram.com",
+    },
+  },
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
@@ -143,7 +236,8 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Alex Vance",
     gender: "male",
     role: "Head Strength Coach & Power Specialist",
-    tagline: "Master progressive barbell overload and unlock your peak physical power.",
+    tagline:
+      "Master progressive barbell overload and unlock your peak physical power.",
     specialty: "Strength & Powerlifting",
     specialties: [
       "Powerlifting",
@@ -167,13 +261,8 @@ export const TRAINERS_DATA: Trainer[] = [
       { label: "Average Strength Boost", value: "+38%" },
       { label: "Sessions Supervised", value: "4,800+" },
     ],
-    schedule: [
-      "Mon - Fri: 08:00 AM - 02:00 PM",
-      "Sat: 10:00 AM - 03:00 PM",
-    ],
-    achievements: [
-      "Regional Powerlifting Champion",
-    ],
+    schedule: ["Mon - Fri: 08:00 AM - 02:00 PM", "Sat: 10:00 AM - 03:00 PM"],
+    achievements: ["Regional Powerlifting Champion"],
     socials: {
       instagram: "https://instagram.com",
     },
@@ -183,13 +272,10 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Marcus Reed",
     gender: "male",
     role: "CrossFit & Functional Fitness Specialist",
-    tagline: "Forging complete physical preparedness for any real-world challenge.",
+    tagline:
+      "Forging complete physical preparedness for any real-world challenge.",
     specialty: "CrossFit & Olympic Lifting",
-    specialties: [
-      "CrossFit",
-      "Olympic Weightlifting",
-      "Functional Endurance",
-    ],
+    specialties: ["CrossFit", "Olympic Weightlifting", "Functional Endurance"],
     experience: "7+ Years",
     rating: 4.9,
     reviewsCount: 165,
@@ -204,13 +290,8 @@ export const TRAINERS_DATA: Trainer[] = [
       { label: "Athletes Trained", value: "190+" },
       { label: "Sessions Led", value: "3,400+" },
     ],
-    schedule: [
-      "Mon - Thu: 06:00 AM - 12:00 PM",
-      "Sat: 08:00 AM - 01:00 PM",
-    ],
-    achievements: [
-      "CrossFit Regional Qualifier",
-    ],
+    schedule: ["Mon - Thu: 06:00 AM - 12:00 PM", "Sat: 08:00 AM - 01:00 PM"],
+    achievements: ["CrossFit Regional Qualifier"],
     socials: {
       instagram: "https://instagram.com",
     },
@@ -220,7 +301,8 @@ export const TRAINERS_DATA: Trainer[] = [
     name: "Tariq Ahmed",
     gender: "male",
     role: "Founder & Master Rehabilitation Coach",
-    tagline: "Sculpt symmetrical muscle while protecting joints and correcting posture.",
+    tagline:
+      "Sculpt symmetrical muscle while protecting joints and correcting posture.",
     specialty: "Hypertrophy & Posture Rehab",
     specialties: [
       "Aesthetic Bodybuilding",
@@ -231,7 +313,7 @@ export const TRAINERS_DATA: Trainer[] = [
     experience: "10+ Years",
     rating: 5.0,
     reviewsCount: 245,
-    image: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/mmentor/orn3.jpg",
     certifications: [
       "ACE Master Personal Trainer",
       "EXOS Performance Specialist (XPS)",
@@ -244,10 +326,7 @@ export const TRAINERS_DATA: Trainer[] = [
       { label: "Injury Recovery Rate", value: "99.2%" },
       { label: "Sessions Completed", value: "5,300+" },
     ],
-    schedule: [
-      "Sun - Thu: 09:00 AM - 03:00 PM",
-      "Sat: 10:00 AM - 02:00 PM",
-    ],
+    schedule: ["Sun - Thu: 09:00 AM - 03:00 PM", "Sat: 10:00 AM - 02:00 PM"],
     achievements: [
       "Founder & Chief Director at Ahmed Gym",
       "10+ Years Zero-Injury Training Record",
@@ -271,11 +350,11 @@ export const SPECIALTY_FILTERS = [
 
 export const TEAM_METRICS = [
   {
-    value: "6",
+    value: "8",
     suffix: " Master Coaches",
-    label: "3 Male & 3 Female Elite Trainers",
+    label: "3 Male & 5 Female Elite Trainers",
   },
   { value: "100%", suffix: "", label: "Internationally Certified" },
-  { value: "12k+", suffix: "", label: "1-on-1 Sessions Completed" },
+  { value: "16k+", suffix: "", label: "1-on-1 Sessions Completed" },
   { value: "4.96", suffix: " ★", label: "Average Member Rating" },
 ];
