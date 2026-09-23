@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import { Menu, X } from "lucide-react";
+import AccentSwitcher from "@/components/AccentSwitcher";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -67,7 +67,7 @@ export default function Navbar() {
             }}
             className="font-display text-xl font-extrabold tracking-tight"
           >
-            <span className="text-accent">AHMED GYM & CAFE 29</span>
+            <span className="text-accent">AHMED GYM &amp; CAFE 29</span>
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
@@ -89,8 +89,8 @@ export default function Navbar() {
                   {active === link.href && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-x-3 -bottom-0.5 h-px bg-accent"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      className="absolute inset-x-3 -bottom-0.5 h-[2px] bg-accent"
+                      transition={{ type: "spring", stiffness: 350, damping: 30, mass: 1 }}
                     />
                   )}
                 </a>
@@ -99,22 +99,23 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <ThemeToggle />
+            <AccentSwitcher />
             <a
               href="#membership"
               onClick={(e) => {
                 e.preventDefault();
                 handleNav("#membership");
               }}
-              className="group relative inline-flex items-center overflow-hidden rounded-full bg-accent px-6 py-2.5 text-sm font-bold text-black transition-transform duration-300 hover:scale-105"
+              className="group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-2.5 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
             >
               <span className="relative z-10">JOIN NOW</span>
-              <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-500 group-hover:translate-x-0" />
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%] skew-x-[-20deg]" />
             </a>
           </div>
 
+          {/* Mobile: show AccentSwitcher + hamburger */}
           <div className="flex items-center gap-3 lg:hidden">
-            <ThemeToggle />
+            <AccentSwitcher />
             <button
               onClick={() => setOpen(!open)}
               className="flex h-10 w-10 items-center justify-center rounded-lg text-white"
@@ -171,9 +172,10 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNav("#membership");
                 }}
-                className="mt-4 rounded-full bg-accent px-6 py-3 text-center text-sm font-bold text-black"
+                className="group relative mt-4 overflow-hidden rounded-full bg-gradient-to-r from-accent to-secondary px-6 py-3 text-center text-sm font-bold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_var(--theme-accent-glow)]"
               >
-                JOIN NOW
+                <span className="relative z-10">JOIN NOW</span>
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%] skew-x-[-20deg]" />
               </a>
             </motion.nav>
           </motion.div>

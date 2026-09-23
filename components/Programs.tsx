@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PROGRAMS } from "@/lib/data";
 import SectionHeading from "./SectionHeading";
+import SectionDivider from "./SectionDivider";
 
 export default function Programs() {
   return (
-    <section id="programs" className="relative py-24 lg:py-32">
+    <section id="programs" className="relative py-24 lg:py-32 bg-ink-2">
+      <SectionDivider position="top" color="fill-ink" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Our Programs"
@@ -34,14 +36,19 @@ export default function Programs() {
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <motion.img
+                  initial={{ scale: 1.2, filter: "blur(5px)" }}
+                  whileInView={{ scale: 1, filter: "blur(0px)" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                   src={program.image}
                   alt={program.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover ken-burns"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent transition-opacity duration-500 group-hover:from-ink" />
-                <div className="absolute inset-0 bg-ink/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="duotone-overlay" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent transition-opacity duration-500 group-hover:from-ink" />
+                <div className="absolute inset-0 bg-secondary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
 
               {/* Content */}
@@ -63,7 +70,7 @@ export default function Programs() {
               </div>
 
               {/* Bottom accent line */}
-              <div className="h-0.5 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+              <div className="h-0.5 w-0 bg-gradient-to-r from-accent to-secondary transition-all duration-500 group-hover:w-full" />
             </motion.a>
           ))}
         </div>

@@ -57,10 +57,11 @@ export default function Gallery() {
               <img
                 src={src}
                 alt={`Gallery ${i + 1}`}
-                className="h-full w-full cursor-pointer object-cover transition-transform duration-700 group-hover:scale-110"
+                className="h-full w-full cursor-pointer object-cover ken-burns"
                 loading="lazy"
                 onClick={() => setLightbox(i)}
               />
+              <div className="duotone-overlay" />
               <div className="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 backdrop-blur-sm">

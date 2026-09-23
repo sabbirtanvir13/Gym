@@ -32,38 +32,40 @@ export default function About() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left: Images */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-3xl">
+            <div className="relative overflow-hidden rounded-3xl group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={IMAGES.about}
                 alt="Gym interior"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[4/5] w-full object-cover ken-burns"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+              <div className="duotone-overlay" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent z-20" />
             </div>
 
             {/* Floating secondary image */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, rotate: -5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="absolute -bottom-8 -right-4 w-44 overflow-hidden rounded-2xl border-4 border-ink shadow-2xl sm:w-56 lg:-right-8"
+              transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute -bottom-8 -right-4 w-44 overflow-hidden rounded-2xl border-4 border-ink shadow-2xl sm:w-56 lg:-right-8 group"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={IMAGES.aboutSecondary}
                 alt="Gym equipment"
-                className="aspect-square w-full object-cover"
+                className="aspect-square w-full object-cover ken-burns"
                 loading="lazy"
               />
+              <div className="duotone-overlay" />
             </motion.div>
 
             {/* Floating stat badge */}
@@ -88,26 +90,35 @@ export default function About() {
             />
 
             {/* Highlights */}
-            <ul className="mt-8 grid grid-cols-2 gap-3">
+            <motion.ul 
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
               {HIGHLIGHTS.map((item, i) => (
                 <motion.li
                   key={item}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="flex items-center gap-2 text-sm text-white/80"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.9, x: -10 },
+                    show: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
+                  }}
+                  className="flex items-center gap-3 text-sm font-medium text-white/90"
                 >
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
-                    <Check size={12} />
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-secondary shadow-[0_0_10px_rgba(250,204,21,0.2)]">
+                    <Check size={14} strokeWidth={3} />
                   </span>
                   {item}
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
 
             {/* Feature cards */}
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="mt-12 grid gap-5 sm:grid-cols-2">
               {FEATURES.map((feature, i) => {
                 const Icon = ICONS[feature.icon] || Dumbbell;
                 return (
@@ -117,16 +128,16 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    whileHover={{ y: -4 }}
-                    className="group rounded-2xl border border-white/8 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-accent/30"
+                    whileHover={{ y: -6 }}
+                    className="group rounded-2xl glass p-6 transition-all duration-400 hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(250,204,21,0.08)]"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
-                      <Icon size={20} />
+                    <div className="icon-container h-12 w-12 text-secondary group-hover:scale-110">
+                      <Icon size={22} />
                     </div>
-                    <h4 className="mt-4 text-sm font-bold text-white">
+                    <h4 className="mt-5 text-base font-bold text-white tracking-wide">
                       {feature.title}
                     </h4>
-                    <p className="mt-1.5 text-xs leading-relaxed text-ash">
+                    <p className="mt-2 text-sm leading-relaxed text-ash">
                       {feature.desc}
                     </p>
                   </motion.div>

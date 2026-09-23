@@ -9,7 +9,7 @@ export default function Membership() {
   return (
     <section id="membership" className="relative py-24 lg:py-32">
       {/* Background glow */}
-      <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
+      <div className="absolute left-1/2 top-1/2 h-[300px] sm:h-[400px] w-[300px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading

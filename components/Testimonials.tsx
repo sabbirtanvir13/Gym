@@ -27,7 +27,7 @@ export default function Testimonials() {
 
   return (
     <section className="relative py-24 lg:py-32">
-      <div className="absolute left-1/2 top-1/2 h-[300px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[120px]" />
+      <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[120px]" />
 
       <div className="relative mx-auto max-w-4xl px-5 lg:px-8">
         <SectionHeading
@@ -45,7 +45,7 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="glass rounded-3xl p-8 text-center sm:p-12"
+              className="glass rounded-3xl p-6 sm:p-12 text-center"
             >
               <Quote
                 size={40}

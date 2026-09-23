@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { AccentThemeProvider } from "@/components/AccentThemeProvider";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/Footer/Footer";
 
@@ -36,11 +36,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full bg-ink text-white antialiased">
-        <ThemeProvider attribute="data-theme" defaultTheme="dark">
+        <AccentThemeProvider>
           <Navbar />
           <main className="noise-texture">{children}</main>
           <Footer />
-        </ThemeProvider>
+        </AccentThemeProvider>
       </body>
     </html>
   );
