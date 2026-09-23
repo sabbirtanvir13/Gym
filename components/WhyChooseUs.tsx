@@ -54,9 +54,9 @@ export default function WhyChooseUs() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: (i % 3) * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6, x: 4 }}
-                className="group flex items-center gap-5 rounded-2xl glass p-6 transition-all duration-400 hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(250,204,21,0.08)]"
+                className="group flex items-center gap-5 rounded-2xl glass p-6 transition-all duration-400 hover:border-accent/40 hover:shadow-[0_8px_30px_var(--theme-accent-glow)]"
               >
-                <div className="icon-container h-12 w-12 shrink-0 text-secondary group-hover:scale-110">
+                <div className="icon-container h-12 w-12 shrink-0 text-accent group-hover:scale-110">
                   <Icon size={22} />
                 </div>
                 <span className="text-base font-bold tracking-wide">{item.title}</span>
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
 
         {/* Stats with counters */}
         <div className="mt-20 grid grid-cols-2 gap-4 sm:gap-8 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 sm:p-8 lg:p-12 lg:grid-cols-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] relative overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}

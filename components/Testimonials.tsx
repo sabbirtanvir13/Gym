@@ -140,7 +140,7 @@ export default function Testimonials() {
                       <Star
                         key={i}
                         size={20}
-                        className="fill-accent text-accent drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]"
+                        className="fill-accent text-accent drop-shadow-[0_0_10px_var(--theme-accent-glow)]"
                       />
                     ))}
                     <span className="ml-3 text-xs font-bold tracking-widest text-white/50 uppercase">
@@ -187,10 +187,11 @@ export default function Testimonials() {
                   aria-label={`Go to slide ${i + 1}`}
                 >
                   <span
-                    className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${i === current
-                        ? "w-12 bg-accent shadow-[0_0_15px_rgba(250,204,21,0.6)]"
+                    className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      i === current
+                        ? "w-12 bg-accent shadow-[0_0_15px_var(--theme-accent-glow)]"
                         : "w-3 bg-white/20 group-hover:bg-white/40 group-hover:w-6"
-                      }`}
+                    }`}
                   />
                 </button>
               ))}
