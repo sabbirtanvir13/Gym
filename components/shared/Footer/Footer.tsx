@@ -17,7 +17,7 @@ const QUICK_LINKS = [
   { label: "Trainers", href: "/trainers" },
   { label: "Membership", href: "/#membership" },
   { label: "Schedule", href: "/#schedule" },
-  { label: "Protein Calculator", href: "/#protein-calculator" },
+  { label: "Health", href: "/protein-calculator" },
   { label: "Gallery", href: "/#gallery" },
 ];
 
