@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { label: "Trainers", href: "/trainers" },
   { label: "Membership", href: "#membership" },
   { label: "Schedule", href: "#schedule" },
+  { label: "Protein Calc", href: "#protein-calculator" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
