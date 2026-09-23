@@ -20,19 +20,24 @@ export default function TrainersGrid() {
   const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
 
   // Counts
-  const totalCount = TRAINERS_DATA.length;
-  const maleCount = TRAINERS_DATA.filter((t) => t.gender === "male").length;
-  const femaleCount = TRAINERS_DATA.filter((t) => t.gender === "female").length;
-  const ownerCount = TRAINERS_DATA.filter((t) => t.isOwner).length;
+  const regularTrainers = TRAINERS_DATA.filter((t) => !t.isOwner && !t.isManager);
+  const totalCount = regularTrainers.length;
+  const maleCount = regularTrainers.filter((t) => t.gender === "male").length;
+  const femaleCount = regularTrainers.filter((t) => t.gender === "female").length;
+  const ownerCount = TRAINERS_DATA.filter((t) => t.isOwner || t.isManager).length;
 
   // Filtered trainers
   const filteredTrainers = useMemo(() => {
     return TRAINERS_DATA.filter((t) => {
-      // Gender filter
+      // Gender & Role filter
       if (genderFilter === "owner") {
-        if (!t.isOwner) return false;
-      } else if (genderFilter !== "all" && t.gender !== genderFilter) {
-        return false;
+        if (!t.isOwner && !t.isManager) return false;
+      } else if (genderFilter === "all") {
+        if (t.isOwner || t.isManager) return false;
+      } else if (genderFilter === "female") {
+        if (t.isOwner || t.isManager || t.gender !== "female") return false;
+      } else if (genderFilter === "male") {
+        if (t.isOwner || t.isManager || t.gender !== "male") return false;
       }
       // Specialty filter
       if (
