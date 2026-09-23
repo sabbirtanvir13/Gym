@@ -2,11 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, Play } from "lucide-react";
 import { IMAGES } from "@/lib/data/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const HEIGHTS = ["h-64", "h-80", "h-72", "h-96", "h-64", "h-80", "h-72", "h-96", "h-64"];
+
+const isVideo = (url: string) => url.endsWith(".mp4") || url.includes("/video/");
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -44,32 +46,51 @@ export default function Gallery() {
         />
 
         <div className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {IMAGES.gallery.map((src, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
-              className={`group relative mb-4 overflow-hidden rounded-2xl border border-white/8 ${HEIGHTS[i]}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt={`Gallery ${i + 1}`}
-                className="h-full w-full cursor-pointer object-cover ken-burns"
-                loading="lazy"
-                onClick={() => setLightbox(i)}
-              />
-              <div className="duotone-overlay" />
-              <div className="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 backdrop-blur-sm">
-                  <ZoomIn size={20} className="text-white" />
-                </span>
-              </div>
-            </motion.div>
-          ))}
+          {IMAGES.gallery.map((src, i) => {
+            const isVid = isVideo(src);
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: (i % 3) * 0.1, duration: 0.6 }}
+                className={`group relative mb-4 overflow-hidden rounded-2xl border border-white/8 ${HEIGHTS[i]}`}
+              >
+                {isVid ? (
+                  <video
+                    src={src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full cursor-pointer object-cover"
+                    onClick={() => setLightbox(i)}
+                  />
+                ) : (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={src}
+                    alt={`Gallery ${i + 1}`}
+                    className="h-full w-full cursor-pointer object-cover ken-burns"
+                    loading="lazy"
+                    onClick={() => setLightbox(i)}
+                  />
+                )}
+                <div className="duotone-overlay" />
+                <div className="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 backdrop-blur-sm">
+                    {isVid ? (
+                      <Play size={20} className="text-white fill-white ml-0.5" />
+                    ) : (
+                      <ZoomIn size={20} className="text-white" />
+                    )}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -100,16 +121,32 @@ export default function Gallery() {
               &#8249;
             </button>
 
-            <motion.img
-              key={lightbox}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              src={IMAGES.gallery[lightbox]}
-              alt={`Gallery ${lightbox + 1}`}
-              onClick={(e) => e.stopPropagation()}
-              className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain"
-            />
+            {isVideo(IMAGES.gallery[lightbox]) ? (
+              <motion.video
+                key={lightbox}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                src={IMAGES.gallery[lightbox]}
+                autoPlay
+                loop
+                controls
+                playsInline
+                onClick={(e) => e.stopPropagation()}
+                className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
+              />
+            ) : (
+              <motion.img
+                key={lightbox}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                src={IMAGES.gallery[lightbox]}
+                alt={`Gallery ${lightbox + 1}`}
+                onClick={(e) => e.stopPropagation()}
+                className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain"
+              />
+            )}
 
             <button
               onClick={(e) => {
