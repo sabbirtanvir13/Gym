@@ -3,8 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Sparkles, CircleDashed } from "lucide-react";
-import { IMAGES, STATS } from "@/lib/data";
-import Counter from "./Counter";
+import { IMAGES, STATS } from "@/lib/data/data";
+import Counter from "@/components/ui/Counter";
 import React from "react";
 
 // =========================================================================

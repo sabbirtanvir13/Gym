@@ -17,8 +17,8 @@ import {
   Target,
   ShieldCheck,
 } from "lucide-react";
-import { PROGRAMS } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { PROGRAMS } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 /* ─── CATEGORIES ────────────────────────────────────────────────────────── */
 const CATEGORIES = [

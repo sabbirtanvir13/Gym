@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
-import { PLANS } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { PLANS } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Membership() {
   return (

@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, BadgeCheck, Quote } from "lucide-react";
-import { TESTIMONIALS } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { TESTIMONIALS } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 /* ─── Ultra-Smooth Motion Variants ─────────────────────────────────────── */
 const slideVariants = {

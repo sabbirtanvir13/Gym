@@ -9,10 +9,10 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { WHY_CHOOSE_US } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
-import Counter from "./Counter";
-import SectionDivider from "./SectionDivider";
+import { WHY_CHOOSE_US } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Counter from "@/components/ui/Counter";
+import SectionDivider from "@/components/layout/SectionDivider";
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Dumbbell,

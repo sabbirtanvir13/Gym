@@ -11,7 +11,7 @@ import {
   Send,
   Check,
 } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const CONTACT_INFO = [
   { icon: MapPin, label: "Address", value: "Plot-112, Block 1, Road 1, Goyalkhali, Khulna, Bangladesh" },

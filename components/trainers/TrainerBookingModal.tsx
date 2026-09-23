@@ -15,7 +15,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { Trainer, BookingFormData } from "@/types/trainer";
-import { TRAINERS_DATA } from "@/lib/trainers-data";
+import { TRAINERS_DATA } from "@/lib/data/trainers-data";
 
 interface TrainerBookingModalProps {
   trainer: Trainer | null;

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight, Award, Flame, Users, Star } from "lucide-react";
-import { TEAM_METRICS } from "@/lib/trainers-data";
+import { TEAM_METRICS } from "@/lib/data/trainers-data";
 
 export default function TrainersHero() {
   const metricIcons = [Users, Award, Flame, Star];

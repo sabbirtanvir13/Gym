@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import ProteinCalculator from "@/components/ProteinCalculator";
+import ProteinCalculator from "@/components/ui/ProteinCalculator";
 
 export const metadata: Metadata = {
   title: "Personalized Daily Protein Calculator | Ahmed Gym & Cafe 29",

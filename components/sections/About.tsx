@@ -8,8 +8,8 @@ import {
   Sparkles,
   Check,
 } from "lucide-react";
-import { IMAGES, FEATURES } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { IMAGES, FEATURES } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Dumbbell,

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Sun, Moon, Dumbbell, Sparkles, Clock, CalendarX2 } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 // ─── MOCK DATA ─────────────────────────────────────────────────────────
 // Ei data gulo apni apnar gym er actual time onujayi change kore nite parben

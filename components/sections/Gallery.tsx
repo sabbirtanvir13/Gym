@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
-import { IMAGES } from "@/lib/data";
-import SectionHeading from "./SectionHeading";
+import { IMAGES } from "@/lib/data/data";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const HEIGHTS = ["h-64", "h-80", "h-72", "h-96", "h-64", "h-80", "h-72", "h-96", "h-64"];
 
