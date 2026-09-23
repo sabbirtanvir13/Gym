@@ -64,7 +64,7 @@ export default function Testimonials() {
   const t = TESTIMONIALS[current];
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-black text-white">
+    <section className="relative py-24 lg:py-32 overflow-hidden text-white">
       {/* ── Atmospheric Glow Backdrops ───────────────────────────────────── */}
       <div className="pointer-events-none absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[180px]" />
       <div className="pointer-events-none absolute bottom-10 right-10 h-[400px] w-[400px] rounded-full bg-secondary/5 blur-[160px]" />

@@ -1,137 +1,176 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { SCHEDULE, SCHEDULE_TIMES } from "@/lib/data";
+import { motion } from "framer-motion";
+import { Sun, Moon, Dumbbell, Sparkles, Clock, CalendarX2 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
-const CLASS_COLORS: Record<string, string> = {
-  Strength: "bg-accent/15 text-accent border-accent/30",
-  Cardio: "bg-blue-500/15 text-blue-400 border-blue-500/30",
-  CrossFit: "bg-orange-500/15 text-orange-400 border-orange-500/30",
-  Yoga: "bg-purple-500/15 text-purple-400 border-purple-500/30",
-  HIIT: "bg-red-500/15 text-red-400 border-red-500/30",
-  "Personal Training": "bg-cyan-500/15 text-cyan-400 border-cyan-500/30",
+// ─── MOCK DATA ─────────────────────────────────────────────────────────
+// Ei data gulo apni apnar gym er actual time onujayi change kore nite parben
+const SCHEDULE_DATA = [
+  {
+    id: "men",
+    title: "MEN'S SCHEDULE",
+    subtitle: "Regular 6 Days (Sat - Thu)",
+    theme: "from-blue-600/10 via-blue-600/5 to-transparent border-blue-500/20",
+    accent: "text-blue-400",
+    glow: "shadow-[0_0_30px_rgba(59,130,246,0.15)]",
+    icon: Dumbbell,
+    morning: [
+      { time: "06:00 AM - 08:00 AM", name: "Early Bird Fitness & Cardio" },
+      { time: "08:00 AM - 10:00 AM", name: "Morning Strength Batch" },
+    ],
+    evening: [
+      { time: "05:00 PM - 07:00 PM", name: "Evening General Fitness" },
+      { time: "07:00 PM - 10:00 PM", name: "Heavy Weight & Pro Bodybuilding" },
+    ],
+  },
+  {
+    id: "women",
+    title: "WOMEN'S SCHEDULE",
+    subtitle: "Regular 6 Days (Sat - Thu)",
+    theme: "from-pink-600/10 via-pink-600/5 to-transparent border-pink-500/20",
+    accent: "text-pink-400",
+    glow: "shadow-[0_0_30px_rgba(236,72,153,0.15)]",
+    icon: Sparkles,
+    morning: [
+      { time: "09:00 AM - 10:30 AM", name: "Morning Yoga & Aerobics" },
+      { time: "10:30 AM - 12:00 PM", name: "Cardio & Fat Loss Program" },
+    ],
+    evening: [
+      { time: "03:00 PM - 05:00 PM", name: "Ladies Only General Batch" },
+      { time: "04:00 PM - 05:00 PM", name: "Zumba & HIIT (Tue/Thu)" },
+    ],
+  },
+];
+
+/* ─── Animations ───────────────────────────────────────────────────────── */
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  }),
 };
 
 export default function Schedule() {
-  const [activeDay, setActiveDay] = useState(0);
-
   return (
-    <section id="schedule" className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section
+      id="schedule"
+      className="relative py-24 lg:py-32 overflow-hidden bg-[#020202]"
+    >
+      {/* Background Ambient Glows */}
+      <div className="absolute top-1/4 left-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 h-[500px] w-[500px] translate-x-1/2 rounded-full bg-pink-500/5 blur-[150px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
         <SectionHeading
-          eyebrow="Class Schedule"
-          title="WEEKLY SCHEDULE"
-          subtitle="Find the perfect class for your routine. All classes are led by certified trainers."
+          eyebrow="Weekly Routine"
+          title="GYM TIMING & BATCHES"
+          subtitle="Dedicated slots for men and women 6 days a week. Find your perfect workout time."
+          center
         />
 
-        {/* Day selector - mobile */}
-        <div className="mt-12 flex gap-2 overflow-x-auto pb-2 hide-scrollbar lg:hidden">
-          {SCHEDULE.map((day, i) => (
-            <button
-              key={day.day}
-              onClick={() => setActiveDay(i)}
-              className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
-                activeDay === i
-                  ? "bg-accent text-black"
-                  : "border border-white/10 text-ash"
-              }`}
-            >
-              {day.day.slice(0, 3)}
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile schedule */}
-        <div className="mt-6 lg:hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeDay}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-3"
-            >
-              {SCHEDULE_TIMES.map((time, ti) => {
-                const cls = SCHEDULE[activeDay].classes[ti];
-                if (cls === "—") return null;
-                return (
-                  <div
-                    key={ti}
-                    className="flex items-center gap-4 rounded-xl border border-white/8 bg-white/[0.02] p-4"
-                  >
-                    <span className="w-14 text-sm font-bold text-accent">
-                      {time}
-                    </span>
-                    <span
-                      className={`rounded-lg border px-3 py-1 text-xs font-semibold ${
-                        CLASS_COLORS[cls] ||
-                        "border-white/10 text-white/70"
-                      }`}
-                    >
-                      {cls}
-                    </span>
-                  </div>
-                );
-              })}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Desktop schedule table */}
-        <div className="mt-12 hidden lg:block">
-          <div className="overflow-hidden rounded-2xl border border-white/8">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-white/8 bg-white/[0.02]">
-                  <th className="p-4 text-left text-xs font-bold uppercase tracking-wider text-ash">
-                    Time
-                  </th>
-                  {SCHEDULE.map((day) => (
-                    <th
-                      key={day.day}
-                      className="p-4 text-left text-xs font-bold uppercase tracking-wider text-ash"
-                    >
-                      {day.day}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {SCHEDULE_TIMES.map((time, ti) => (
-                  <tr
-                    key={time}
-                    className="border-b border-white/5 transition-colors hover:bg-white/[0.01]"
-                  >
-                    <td className="p-4 text-sm font-bold text-accent">
-                      {time}
-                    </td>
-                    {SCHEDULE.map((day) => {
-                      const cls = day.classes[ti];
-                      return (
-                        <td key={day.day} className="p-4">
-                          {cls && cls !== "—" ? (
-                            <span
-                              className={`inline-block rounded-lg border px-3 py-1.5 text-xs font-semibold ${
-                                CLASS_COLORS[cls] ||
-                                "border-white/10 text-white/70"
-                              }`}
-                            >
-                              {cls}
-                            </span>
-                          ) : (
-                            <span className="text-ash-2">—</span>
-                          )}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Top Info Badge */}
+        <div className="mt-8 flex justify-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 backdrop-blur-md">
+            <CalendarX2 size={16} className="text-accent" />
+            <span className="text-sm font-bold uppercase tracking-widest text-white/80">
+              Friday Closed / Maintenance
+            </span>
           </div>
+        </div>
+
+        {/* ── Main Schedule Grid ── */}
+        <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-10">
+          {SCHEDULE_DATA.map((group, i) => {
+            const MainIcon = group.icon;
+
+            return (
+              <motion.div
+                key={group.id}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={cardVariants}
+                className={`relative overflow-hidden rounded-3xl border bg-gradient-to-b p-6 sm:p-10 backdrop-blur-xl ${group.theme} ${group.glow}`}
+              >
+                {/* Header Section */}
+                <div className="mb-10 flex items-center gap-5">
+                  <div
+                    className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-black/40 border border-white/5 backdrop-blur-md ${group.accent}`}
+                  >
+                    <MainIcon size={32} />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-3xl font-black uppercase tracking-tight text-white">
+                      {group.title}
+                    </h2>
+                    <p className="mt-1 text-sm font-bold uppercase tracking-widest text-white/50">
+                      {group.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Morning Slots */}
+                <div className="mb-8">
+                  <div className="mb-4 flex items-center gap-2 border-b border-white/5 pb-3">
+                    <Sun size={18} className="text-yellow-500" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/80">
+                      Morning Shifts
+                    </h3>
+                  </div>
+                  <div className="space-y-3">
+                    {group.morning.map((slot, idx) => (
+                      <div
+                        key={idx}
+                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl bg-black/20 p-4 transition-colors hover:bg-black/40"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Clock size={16} className={group.accent} />
+                          <span className="font-mono text-sm font-bold text-white">
+                            {slot.time}
+                          </span>
+                        </div>
+                        <span className="text-sm font-medium text-white/60 sm:text-right">
+                          {slot.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Evening Slots */}
+                <div>
+                  <div className="mb-4 flex items-center gap-2 border-b border-white/5 pb-3">
+                    <Moon size={18} className="text-indigo-400" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-widest text-white/80">
+                      Evening Shifts
+                    </h3>
+                  </div>
+                  <div className="space-y-3">
+                    {group.evening.map((slot, idx) => (
+                      <div
+                        key={idx}
+                        className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl bg-black/20 p-4 transition-colors hover:bg-black/40"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Clock size={16} className={group.accent} />
+                          <span className="font-mono text-sm font-bold text-white">
+                            {slot.time}
+                          </span>
+                        </div>
+                        <span className="text-sm font-medium text-white/60 sm:text-right">
+                          {slot.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

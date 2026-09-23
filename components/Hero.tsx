@@ -108,7 +108,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" ref={containerRef} className="relative flex min-h-screen items-center overflow-hidden bg-black">
+    <section id="home" ref={containerRef} className="relative flex min-h-screen items-center overflow-hidden">
       {/* 
         Video Background with Parallax:
       */}
