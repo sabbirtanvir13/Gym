@@ -1,4 +1,4 @@
-﻿import { Trainer } from "@/types/trainer";
+import { Trainer } from "@/types/trainer";
 
 export const TRAINERS_DATA: Trainer[] = [
   // ── 2 FEMALE CRICKETER OWNERS ───────────────────────────────────────
