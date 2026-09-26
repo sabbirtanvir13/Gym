@@ -134,10 +134,9 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
-
-
 
   // ── 3 MALE TRAINERS ─────────────────────────────────────────────────
   {
@@ -174,6 +173,7 @@ export const TRAINERS_DATA: Trainer[] = [
     achievements: ["Regional Powerlifting Champion"],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
   {
@@ -203,6 +203,7 @@ export const TRAINERS_DATA: Trainer[] = [
     achievements: ["CrossFit Regional Qualifier"],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
   },
   {
@@ -238,6 +239,7 @@ export const TRAINERS_DATA: Trainer[] = [
     ],
     socials: {
       instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
     },
     isOwner: false,
     isManager: true,
@@ -280,6 +282,50 @@ export const TRAINERS_DATA: Trainer[] = [
     achievements: [
       "Best Yoga & Pilates Mentor 2023",
       "Specialist in Women's Health & Wellness",
+    ],
+    socials: {
+      instagram: "https://instagram.com",
+      facebook: "https://facebook.com",
+    },
+  },
+  {
+    id: "sarah-jenkins",
+    name: "Sarah Jenkins",
+    gender: "female",
+    role: "HIIT & Cardiovascular Expert",
+    tagline:
+      "Ignite your metabolism and push your cardiovascular limits to the max.",
+    specialty: "HIIT & Conditioning",
+    specialties: [
+      "HIIT (High-Intensity Interval Training)",
+      "Cardio Conditioning",
+      "Fat Burning",
+      "Endurance Building",
+    ],
+    experience: "7+ Years",
+    rating: 4.9,
+    reviewsCount: 185,
+    image: "/mmentor/t6.jfif",
+    certifications: [
+      "ISSA Certified Fitness Trainer",
+      "Advanced HIIT Specialist",
+      "Group Fitness Certified (AFAA)",
+    ],
+    bio: "Sarah is an absolute powerhouse when it comes to high-intensity interval training. She ensures every session maximizes calorie burn and builds relentless stamina.",
+    philosophy:
+      "Don't stop when you're tired. Stop when you're done. Push your limits and discover what you're truly capable of.",
+    stats: [
+      { label: "Calories Burned", value: "1M+" },
+      { label: "Group Classes", value: "500+" },
+      { label: "Client Success", value: "97%" },
+    ],
+    schedule: [
+      "Mon - Thu: 04:00 PM - 09:00 PM",
+      "Fri - Sat: 08:00 AM - 12:00 PM",
+    ],
+    achievements: [
+      "Top Group Fitness Instructor 2025",
+      "Endurance Athlete Champion",
     ],
     socials: {
       instagram: "https://instagram.com",
